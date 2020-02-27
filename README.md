@@ -20,7 +20,13 @@ In particular, as part of this section we recommend that you provide a list of U
 As a user type, I want to perform an action, so that I can achieve a goal.
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
-Features
+## Features
+### Website
+I add all html pages so they can be rendered in Flask to the Folder Name "templates".  Eventually we will be able to deploy this website on Heroku.  More on this later.
+I have rendered the home, about and contact pages using flask and the jinga template language to make it easier to type the paths and render each of the templates.
+for example: we add inside the "@href put {{ url_for('index') }}". We also do the same for And I'll do the same for "about: {{ url_for('about') }}" and "contact: {{ url_for('contact') }} pages. 
+Essentially, Flask looks up our index() and about() views and injects the URL for it into the href.  All works as expected.
+A handy feature of Flask is the ability to pick up on any errors we might make such as writing the url for 'home' instead of the url for 'index'.  Home does not exist but index does and so notifys us of this error.
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 
 Existing Features
