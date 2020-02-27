@@ -24,10 +24,15 @@ This section is also where you would share links to any wireframes, mockups, dia
 ### Website
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.
-for example: we add inside the *"@href put {{ url_for('index') }}"*. We also do the same for *"about: {{ url_for('about') }}" and "contact: {{ url_for('contact') }} pages*. 
+for example: we add inside the
+ *"@href put {{ url_for('index') }}"*. We also do the same for *"about: {{ url_for('about') }}" and "contact: {{ url_for('contact') }} pages*. 
 Essentially, Flask looks up our index() and about() views and injects the URL for it into the href.  All works as expected.
 Another handy feature of Flask is the ability to detect any errors we might make such as *writing the url for 'home' instead of the url for 'index'*.  Home does not exist but index does and so indicates this error.
-**Template Inheritance** inherits code from other templates, creating a *base template and using {% extends 'base.html' %} in a child template*.
+**Template Inheritance** Inherits code from other templates, creating a *base template and using {% extends 'base.html' %} in a child template*.
+
+**Getting Themes**  I have chosen the **Start bootstrap theme**, *Business Casual* for a multi-page website. 
+I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/business-casual/
+I then style accordingly.
 
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 
