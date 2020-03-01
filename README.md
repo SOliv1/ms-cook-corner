@@ -11,15 +11,17 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 The utensils has been designed for multi-functionality and comfort. Each piece is designed for multi-purpose functionality.  
 There are two innovative ranges in beechwood and stainless Steel range which ensures that all cooks needs are met.
 
-UX
+## UX
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project
-This website is designed for keen cooks to share recipes with others swapping ideas and building up a collection.  They have access to all the cook ware they need
-via a link on the website to the finest British cook ware Mason Cash when only the best will do.
+This website is designed for keen cooks to share recipes with others, by swapping ideas and building up a collection.  They have access to all the cook ware they need
+via a link on the website to the finest British cookware *Mason Cash* when only the best will do.
+I want to find out more about the useful implements and products that can be found on the website and buy directly with companies who speicalize in Mason Cash as well as promoting *Mason Cash* the Company, without having to leave the site.
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 
 As a user type, I want to perform an action, so that I can achieve a goal.
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
-
+static/img/wirefme1.png 
+static/img/wirefme2.png
 ## Features
 ### Website
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
@@ -30,8 +32,8 @@ Essentially, Flask looks up our index() and about() views and injects the URL fo
 Another handy feature of Flask is the ability to detect any errors we might make such as *writing the url for 'home' instead of the url for 'index'*.  Home does not exist but index does and so indicates this error.
 **Template Inheritance** Inherits code from other templates, creating a *base template and using {% extends 'base.html' %} in a child template*.
 
-**Getting Themes**  I have chosen the **Start bootstrap theme**, *Business Casual* for a multi-page website. 
-I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/business-casual/
+**Getting Themes**  I have chosen the **Start bootstrap theme *Clean Blog* as featured in *CI lessons on Flask Framework*, for a multi-page website. 
+I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/clean-blog/
 I then style accordingly.
 
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
@@ -78,9 +80,18 @@ Different configuration files?
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
-Credits
-Content
-The text for section Y was copied from the Wikipedia article Z
+## Credits
+# ##Content
+### Cook Corner - Home page image - curtesy of Mason Cash:- 
+ https://www.masoncash.co.uk/index.php/prodsecucts/mixing-bowls/colour-mix-mixing-bowls.html
+#### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
+*Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
+Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
+
+
+
+
+''The text for section Y was copied from the Wikipedia article Z
 Media
 The photos used in this site were obtained from ...
 Acknowledgements
