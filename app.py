@@ -11,17 +11,17 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template("about.html", page_title="About")
 
 
 @app.route('/contact')
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", page_title="Contact")
 
 
 @app.route('/recipes')
 def recipes():
-    return render_template("recipes.html")    
+    return render_template("recipes.html", page_title="Recipes")    
 
 
 if __name__ == '__main__':
