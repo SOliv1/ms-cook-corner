@@ -24,8 +24,8 @@ static/img/wirefme1.png
 static/img/wirefme2.png
 
 ## Features
-### Website
 
+### Website
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.
 for example: we add inside the
@@ -41,6 +41,17 @@ to return serverside code to the frontend.
 @app.route('/about')
 def about():
     return render_template("about.html", page_title="About")
+
+**Reducing repetition**  using the *{% %} notation* template tags for statements (not for expressions).
+allowing us to use a *for loop* inside our HTML.  Standard Python *for loop* for number in list_of_numbers.
+and then need to supply an {%end for%} so that the templating language knows where the *for loop* stops.
+Example:- 
+{% for number in list_of_numbers %}
+    <p>{{ number }}</p> 
+{% endfor %}
+
+**The if template tag**
+I use if statements inside my template. By using the example here {% if some_condition %} tag and the closing {% endif %} tag.  See this in action by going to *About* section of website.
 
 **Getting Themes**  I have chosen the **Start bootstrap theme *Clean Blog* as featured in *CI lessons on Flask Framework*, for a multi-page website. 
 I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/clean-blog/
