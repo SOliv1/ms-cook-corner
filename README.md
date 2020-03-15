@@ -26,6 +26,9 @@ static/img/wirefme2.png
 ## Features
 
 ### Website
+
+
+
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.
 for example: we add inside the
@@ -67,6 +70,14 @@ For some/all of your features, you may choose to reference the specific project 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ## Features Left to Implement
+# Flask Chat project in my Recipe application
+I originally cloned from my previous Flask Chat Project to build and create features in my new
+Milestone 3 project. This chat application was written in *Flask*.  The application was downloaded from the libruaries using the pip3 install Flask from flask command.
+The purpose of this project is to take data from a URL and store the information in a list, in this case sharing recipe ideas with authorised users who have signed up 
+for this service.
+
+
+
 Another feature idea
 Technologies Used
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
@@ -90,14 +101,36 @@ In addition, you should mention in this section how your project looks and works
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
+ 
 ## Deployment
+### Cloning a repository to GitHub Desktop
+I cloned one of my Flask mini projects to deploy locally on GitHub desktop. 
+On GitHub, I navigate to the main page of the repository.
+Under my repository name, I click to clone my repository in Desktop. I follow the prompts in GitHub Desktop to complete the clone.  
+
+
+
+
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
 
 Different values for environment variables (Heroku Config Vars)?
 Different configuration files?
+
+###bugs
+While I was trying to connect sensitive info from my flask app into a env.py file, I got the following error:
+
+Traceback (most recent call last):
+  File "/workspace/qc-metrics-analyser-4/app.py", line 7, in <module>
+    import env
+  File "/workspace/qc-metrics-analyser-4/env.py", line 6, in <module>
+    os.environ.get["MONGO_URI"] = "mongodb+srv://seqMetRoot:dbconnection"
+TypeError: 'method' object does not support item assignment
+
+I managed to fix my problem with my env.py file. I was incorrectly using the get method. os.environ.get["MONGO_URI"] should have been os.environ["MONGO_URI"] .
+
+
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
@@ -111,7 +144,9 @@ In addition, if it is not obvious, you should also describe how to run your code
 Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
 
 
-
+###Family Hub created by Anna Greaves
+https://github.com/AJGreaves/familyhub/blob/master/config.py    
+Layout ideas / organisation for my website e.g. config.py, pages for my templates
 
 ''The text for section Y was copied from the Wikipedia article Z
 Media
