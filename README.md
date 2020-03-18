@@ -27,7 +27,13 @@ static/img/wirefme2.png
 
 ### Website
 
+### Deployment to Heroku
+kindly given to me as I had trouble getting it up and running with my previous commands.
+Here we go:
+npm install -g heroku
 
+Then, to login, use the command:
+heroku login -i
 
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.

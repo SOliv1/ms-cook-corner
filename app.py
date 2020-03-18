@@ -18,7 +18,6 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 mongo = PyMongo(app)
 
 
-
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -67,13 +66,13 @@ def insert_task():
     tasks.insert_one(request.form.to_dict())
     return redirect(url_for('get_tasks'))
 
+
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
     the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     all_categories = mongo.db.categories.find()
     return render_template('edittask.html', task=the_task,
                            categories=all_categories)
-
 
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
@@ -120,6 +119,5 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP', "0.0.0.0"),
             port=int(os.environ.get('PORT', "8080")),
             debug=True)
-
 
 
