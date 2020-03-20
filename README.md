@@ -28,12 +28,13 @@ static/img/wirefme2.png
 ### Website
 
 ### Deployment to Heroku
-kindly given to me as I had trouble getting it up and running with my previous commands.
-Here we go:
-npm install -g heroku
+Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previous commands.
+
+*Here we go:
+ npm install -g heroku
 
 Then, to login, use the command:
-heroku login -i
+heroku login -i * 
 
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.
@@ -60,7 +61,9 @@ Example:-
 {% endfor %}
 
 **The if template tag**
-I use if statements inside my template. By using the example here {% if some_condition %} tag and the closing {% endif %} tag.  See this in action by going to *About* section of website.
+I use `if` statements inside my template. By using the example here:
+ {% if some_condition %} tag and the closing {% endif %} tag. 
+See this in action by going to *About* section of website.
 
 **Getting Themes**  I have chosen the **Start bootstrap theme *Clean Blog* as featured in *CI lessons on Flask Framework*, for a multi-page website. 
 I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/clean-blog/
@@ -85,12 +88,25 @@ for this service.
 
 
 Another feature idea
-Technologies Used
+##Technologies Used
+
+###For CRUD FUNCTIONALITY 
+Install flask: pip3 install flask
+Create a python file: app.py
+Install pynthon: pip3 dnspython
+
+create instance of flask:   import os
+
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 ## JQuery
 The project uses JQuery to simplify DOM manipulation.
 ## Testing
+127.0.0.1 - - [20/Mar/2020 12:05:52] "GET /get_categories HTTP/1.1" 500 -
+Encountered:
+505 error indicates a temporary problem, and sometimes that problem is very temporary. A site might be getting overwhelmed with traffic, for example. So, refreshing the page is always worth a shot. Most browsers use the F5 key to refresh, and also provide a Refresh button somewhere on the address bar. It doesn’t fix the problem very often, but it takes just a second to try.
+
+
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.

@@ -9,12 +9,9 @@ if path.exists("env.py"):
     import env 
 
 
-app = Flask(__name__) 
-
-
-os.environ["MONGO_DBNAME"] = 'cook_corner'
+app = Flask(__name__)
+app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
-
 mongo = PyMongo(app)
 
 
@@ -23,7 +20,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/pages/about')
+@app.route('/about')
 def about():
     data = []
     with open("data/company.json", "r") as json_data:
@@ -31,20 +28,19 @@ def about():
     return render_template("/about.html", page_title="About", company=data)
 
 
-@app.route('/pages/contact')
+@app.route('/contact')
 def contact():
     return render_template("contact.html", page_title="Contact")
 
 
-@app.route('/pages/recipes')
+@app.route('/recipes')
 def recipes():
     return render_template("recipes.html", page_title="Recipes")    
 
-
-## recipes page
     """
-    adding the CRUD functionality to my recipe to create a database for users to share recipes and 
-    find exchange ideas. 
+    recipes adding the CRUD functionality to my recipe to create a database for users, share recipes and 
+    find exchange ideas
+    
     """
 
 @app.route('/')
@@ -100,11 +96,17 @@ def get_categories():
                            categories=mongo.db.categories.find())
 
 
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('get_categories')) 
+
+
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
     return render_template('editcategory.html',
                            category=mongo.db.categories.find_one(
-                           {'_id': ObjectId(category_id)}))
+                            {'_id': ObjectId(category_id)}))
 
 
 @app.route('/update_category/<category_id>', methods=['POST'])
@@ -113,6 +115,11 @@ def update_category(category_id):
         {'_id': ObjectId(category_id)},
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
+
+
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html')    
 
 
 if __name__ == '__main__':

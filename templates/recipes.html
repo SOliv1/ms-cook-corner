@@ -18,114 +18,53 @@
     </head>
 
     <body>
-        <div class="container">     
-            <div class="row">
-                <ul class="collapsible" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="col s3">
-                                <i class="material-icons">expand_more</i>
-                                <a href="/delete_task/5e51791b6270e2aa6e4d9d7b" class="waves-effect waves-light btn btn_small">Done</a>
-                                <a href="/edit_task/5e51791b6270e2aa6e4d9d7b" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                            </div>
-                            <div class="task_header col s9">
-                                <strong>chicken chasseur</strong> - 11 March, 2020
-                            </div>
-                        </div>    
-                        <div class="collapsible-body">
-                            <span>
-                                delicious with a glass of poulie fume 
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="col s3">
-                                <i class="material-icons">expand_more</i>
-                                <a href="/delete_task/5e64dda1b99888db5cb6aad1" class="waves-effect waves-light btn btn_small">Done</a>
-                                <a href="/edit_task/5e64dda1b99888db5cb6aad1" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                            </div>
-                            <div class="task_header col s9">
-                                <strong>packing up </strong> - 31 March, 2020
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <span>
-                                got to get it done 
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="col s3">
-                                <i class="material-icons">expand_more</i>
-                                <a href="/delete_task/5e68de569341b1d3857f349d" class="waves-effect waves-light btn btn_small">Done</a>
-                                <a href="/edit_task/5e68de569341b1d3857f349d" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                            </div>
-                            <div class="task_header col s9">
-                                <strong>luxury fish pie</strong> - 27 March, 2020
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <span>
-                                 delicious and luxurious pieces of cod fish in a creamy white wine sauce with flecks of parsley and topped with a cheese baked mash potato - great with a glass of chablis 
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="col s3">
-                                <i class="material-icons">expand_more</i>
-                                <a href="/delete_task/5e68df0f9341b1d3857f349e" class="waves-effect waves-light btn btn_small">Done</a>
-                                <a href="/edit_task/5e68df0f9341b1d3857f349e" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                            </div>
-                            <div class="task_header col s9">
-                                <strong></strong> 
-                            </div>
-                        </div>
-                        <div class="collapsible-body">
-                            <span>
-                            </span>
-                        </div>
-                    </li>   
-                </ul>
-            </div>
-            <div class= "row">
-                    <a href= "/add_task"class="waves-effect waves-light btn">
-                    <i class="material-icons right"></i>Add Task ></a>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{url_for('get_categories')}}" class="brand-logo">Recipe Manager</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{url_for('get_categories')}}">Home</a></li>
+                        <li><a href="{{url_for('add_task')}}">New Recipe</a></li>
+                        <li><a href="{{url_for('get_tasks')}}">Manage Recipes</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="{{url_for('get_categories')}}">Home</a></li>
+                        <li><a href="{{url_for('add_task')}}">New Recipe</a></li>
+                        <li><a href="{{url_for('get_tasks')}}">Manage Recipes</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>    
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('.collapsible').collapsible();
-                    $('select').material_select();
-                    $(".button-collapse").sideNav();
-                });
+            </nav>      
+        </header>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                $('select').material_select();
+                $(".button-collapse").sideNav();
+            });
 
 
-                $(document).ready(function() {
-                    $('.collapsible').collapsible();
-                    $('select').material_select();
-                })
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                 $('select').material_select();
+            })
 
-                $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-                });
+            $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+            });
             
-                document.getElementById("matfix").addEventListener("click", function(e) {
-	            e.stopPropagation();
-                });
-            </script>
+            document.getElementById("matfix").addEventListener("click", function(e) {
+	        e.stopPropagation();
+            });
+        </script>      
     </body>
 
-{% endblock %}
-
-</html>
+{% endblock %} 

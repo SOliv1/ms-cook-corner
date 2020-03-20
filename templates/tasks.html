@@ -10,8 +10,7 @@
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
                     <a href="{{url_for('delete_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small">Done</a>
-                    <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                    
+                    <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>        
                 </div>
                 <div class="task_header col s9">
                     <strong>{{task.task_name}}</strong> - {{task.due_date}}
@@ -20,15 +19,14 @@
             <div class="collapsible-body">
                 <span>
                 {{task.task_description}} 
-            </span>
+                </span>
             </div>
         </li>
         {% endfor %}
     </ul>
 </div>
 <div class="row">
-    <a href="{{url_for('add_task')}}"class="waves-effect waves-light btn">
-        <i class="material-icons right">playlist_add</i>Add Task
-    </a>
+    <a href="{{url_for('add_task')}}"class="waves-effect waves-light btn"</a>
+    <i class="material-icons right"></i>Add Recipe</a>
 </div>
 {% endblock %}
