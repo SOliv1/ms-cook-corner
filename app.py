@@ -1,4 +1,3 @@
-
 import os
 import json
 from flask import Flask, render_template, redirect, request, url_for
@@ -35,12 +34,11 @@ def contact():
 
 @app.route('/recipes')
 def recipes():
-    return render_template("recipes.html", page_title="Recipes")    
-
+    return render_template("recipes.html", page_title="Recipes")
     """
     recipes adding the CRUD functionality to my recipe to create a database for users, share recipes and 
     find exchange ideas
-    
+
     """
 
 @app.route('/')
