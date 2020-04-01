@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 {% extends 'base.html'%} {% block content %}
+{% extends 'layout.html'%} {% block content %}
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for task in tasks %}
@@ -25,4 +26,4 @@
         {% endfor %}
     </ul>
 </div>
-{% endblock %}
+{% endblock layout%}

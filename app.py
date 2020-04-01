@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, flash, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 mongo = PyMongo(app)
+app.secret_key = 'some_secret'
 
 
 @app.route('/')
@@ -30,14 +31,17 @@ def about():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        print(request.form)
+        flash("Thanks {}, we have received your message".format(
+            request.form["name"]
+        ))
     return render_template("contact.html", page_title="Contact")
 
 
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html", page_title="Recipes")
-    
+
+
     """
     recipes adding the CRUD functionality to my recipe to create a database for users, share recipes and 
     find exchange ideas
