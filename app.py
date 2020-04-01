@@ -27,19 +27,23 @@ def about():
     return render_template("/about.html", page_title="About", company=data)
 
 
-@app.route('/contact')
+@app.route('/contact', methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        print(request.form)
     return render_template("contact.html", page_title="Contact")
 
 
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html", page_title="Recipes")
+    
     """
     recipes adding the CRUD functionality to my recipe to create a database for users, share recipes and 
     find exchange ideas
 
     """
+
 
 @app.route('/')
 @app.route('/get_tasks')
@@ -67,6 +71,7 @@ def edit_task(task_id):
     all_categories = mongo.db.categories.find()
     return render_template('edittask.html', task=the_task,
                            categories=all_categories)
+
 
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
@@ -123,6 +128,4 @@ def add_category():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', "0.0.0.0"),
             port=int(os.environ.get('PORT', "8080")),
-            debug=True)
-
-
+            debug=True)          

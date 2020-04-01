@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <head>
     {% extends 'base.html' %} {% block content %}
-     <h3>{{ page_title }}</h3>
-    {% for task in tasks %}
-        {{task.task_name}}
-        {{task.category_name}}
-        {{task.task_description}}
-        {{task.is_urgent}}
-        {{task.due_date}}
-    {% endfor %}
+    {% if title %} 
+        <title>Recipes - {{ title }}</title>
+        {% else %}
+        <h3>{{ page_title }}</h3>
+         {% endif %}
     <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -36,7 +33,14 @@
                 </div>
             </nav>      
         </header>
-
+        {%block recipes%}
+        {% for task in tasks %}
+        {{task.task_name}}
+        {{task.category_name}}
+        {{task.task_description}}
+        {{task.is_urgent}}
+        {{task.due_date}}
+        {% endfor %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script type="text/javascript">
@@ -67,4 +71,6 @@
         </script>      
     </body>
 </html>
-{% endblock %} 
+{% endfor %}
+{% endblock recipes %}
+ 
