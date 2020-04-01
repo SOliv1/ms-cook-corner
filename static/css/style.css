@@ -1,3 +1,155 @@
+/*-- Home-Styles ---------------------------------------------------- */
+
 .col-md-5 img {
     width: 100%;
+}
+
+
+
+
+
+
+
+/*-- About-Styles ---------------------------------------------------- */
+
+
+
+
+
+/*-- Gallery-Styles ---------------------------------------------------- */
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin-top: auto;
+    padding-bottom: 3rem;
+    font-size: 20px;
+}
+
+.feature-heading {
+    font-size: 50px;
+}
+
+
+.carousel {
+    margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+p {
+    box-sizing: border-box;
+    text-align: justify;
+    margin-bottom: 30px;
+    color: rgb(23, 20, 20);
+}
+
+p .something {
+    color: #fff;
+}
+
+p span {
+    color: #a7daef;
+}
+
+/* Declare heights because of positioning of img element */
+
+.carousel-item {
+    height: 32rem;
+}
+
+.carousel-item .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #df4929;
+    border-color: #f05f40;
+    font-size: 15px;
+    float: right;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:active:focus {
+    background-color: #df4929;
+    border-color: #df4929;
+    color: #ce5a2b;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+
+.image {
+    background-image: url("../images/backstageband.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+
+/*---- css  ----*/
+
+.wrapper {
+    height: 100px;
+    width: 100px;
+}
+
+/*--bg-info .clearfix .style --*/
+
+.bg-info {
+    background-color: #ce5a2b! important;
+}
+
+.btn .btn-secondary {
+    color: #fff;
+    background-color: #df4929;
+    border-color: #f05f40;
+    font-size: 15px;
+    float: right;
+}
+
+.btn.btn-secondary:hover,
+.btn.btn-secondary:active,
+.btn-secondart:focus,
+.btn-secondary:active:focus {
+    background-color: #df4929;
+    border-color: #df4929;
+    color: #ce5a2b;
+}
+
+/*-- Contact-Styles ---------------------------------------------------- */
+
+
+/*-- Recipes-Styles ---------------------------------------------------- */
+
+body {
+    background-color: rgb(255, 255, 255);
 }

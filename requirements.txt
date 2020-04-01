@@ -1,6 +1,7 @@
+
 Click==7.0
-dnspython==1.16.0
+bison==0.1.2
+click==7.1.1
 Flask==1.1.1
-itsdangerous==1.1.0
-pymongo==3.10.1
-Werkzeug==1.0.0
+Flask-PyMongo==2.3.0
+

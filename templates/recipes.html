@@ -1,8 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% extends 'base.html' %} {% block content %}
-<h3>{{ page_title }}</h3>
-{% endblock %}
+    {% extends 'base.html' %} {% block content %}
+     <h3>{{ page_title }}</h3>
+    {% for task in tasks %}
+        {{task.task_name}}
+        {{task.category_name}}
+        {{task.task_description}}
+        {{task.is_urgent}}
+        {{task.due_date}}
+    {% endfor %}
+    <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <title>MS3 CRUD Project</title>
+    </head>
 
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{url_for('get_categories')}}" class="brand-logo">Recipe Manager</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{url_for('get_categories')}}">Home</a></li>
+                        <li><a href="{{url_for('add_task')}}">New Recipe</a></li>
+                        <li><a href="{{url_for('get_tasks')}}">Manage Recipes</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="{{url_for('get_categories')}}">Home</a></li>
+                        <li><a href="{{url_for('add_task')}}">New Recipe</a></li>
+                        <li><a href="{{url_for('get_tasks')}}">Manage Recipes</a></li>
+                    </ul>
+                </div>
+            </nav>      
+        </header>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                $('select').material_select();
+                $(".button-collapse").sideNav();
+            });
+
+
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                 $('select').material_select();
+            })
+
+            $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+            });
+            
+            document.getElementById("matfix").addEventListener("click", function(e) {
+	        e.stopPropagation();
+            });
+        </script>      
+    </body>
 </html>
+{% endblock %} 
