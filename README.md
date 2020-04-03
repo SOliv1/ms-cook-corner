@@ -12,7 +12,6 @@ The utensils has been designed for multi-functionality and comfort. Each piece i
 There are two innovative ranges in beechwood and stainless Steel range which ensures that all cooks needs are met.
 
 ## UX
-
 This website is designed for keen cooks to share recipes with others, by swapping ideas and building up a collection.  They have access to all the cook ware they need
 via a link on the website to the finest British cookware *Mason Cash* when only the best will do.
 I want to find out more about the useful implements and products that can be found on the website and buy directly with companies who speicalize in Mason Cash as well as promoting *Mason Cash* the Company, without having to leave the site.
@@ -164,6 +163,23 @@ In addition, if it is not obvious, you should also describe how to run your code
 #### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
 *Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
 Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
+
+##### Recipes Manager - is based on the basic CRUD functionaity putting it altogether mini project featured in Code Institute DataCentric Module
+with recipes made up by me as an example. T This feature is a basic functioning recipe website.  New features can easily be added to improve the user experience and functionality.
+#####Technologies used Atlas MongoDB recommended by Code Institute
+Create recipes by 
+Adding categories 
+Adding recipes
+Editing recipes
+Updating recipes
+Deleting recipes
+Adding category
+Editing category
+Updating category
+Deleting category
+
+A nice feature to be incorporated - be able to vote in different recipes and be more specific on recipe ingredients.
+
 
 
 ###Family Hub created by Anna Greaves
