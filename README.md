@@ -12,7 +12,7 @@ The utensils has been designed for multi-functionality and comfort. Each piece i
 There are two innovative ranges in beechwood and stainless Steel range which ensures that all cooks needs are met.
 
 ## UX
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project
+
 This website is designed for keen cooks to share recipes with others, by swapping ideas and building up a collection.  They have access to all the cook ware they need
 via a link on the website to the finest British cookware *Mason Cash* when only the best will do.
 I want to find out more about the useful implements and products that can be found on the website and buy directly with companies who speicalize in Mason Cash as well as promoting *Mason Cash* the Company, without having to leave the site.
