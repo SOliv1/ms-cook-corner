@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends base.html %}
+{% block body %}
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <form method=POST action="{{( url_for('login') )}}">
+                    <div class="form group">
+                        <label for="ExampleInputEmail">Username</label>
+                        <input type="text" class="form-control" name="username" place-holder="Username">
+                    </div>
+                    <div class="form group">
+                        <label for="ExampleInputPassword">Password</label>
+                        <input type="text" class="form-control" name="password" place-holder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <br>
+                <div>
+                    Don't have an account?<a href="{{url_for('register')}}">Sign up here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+
+
+</body>
+</html>

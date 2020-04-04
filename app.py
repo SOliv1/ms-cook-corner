@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request, flash, url_for
+from flask import Flask, render_template, redirect, request, session, flash, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -15,9 +15,13 @@ mongo = PyMongo(app)
 app.secret_key = 'some_secret'
 
 
+
 @app.route('/')
 def index():
-    return render_template("index.html")
+    if 'username' in session:
+        return 'You are logged in as' + session('username')
+
+    return render_template("/index.html")
 
 
 @app.route('/about')
@@ -35,6 +39,22 @@ def contact():
             request.form["name"]
         ))
     return render_template("contact.html", page_title="Contact")
+
+    """
+    recipes adding a login and registration to my recipe-pge to create a database for users, share recipes and 
+    find exchange ideas
+
+    """
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/register')
+def register():
+    return''       
 
 
 @app.route('/recipes')
@@ -130,6 +150,7 @@ def add_category():
 
 
 if __name__ == '__main__':
+    app.secret_key = 'some_secret'
     app.run(host=os.environ.get('IP', "0.0.0.0"),
             port=int(os.environ.get('PORT', "8080")),
             debug=True)          
