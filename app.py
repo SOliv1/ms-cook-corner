@@ -2,10 +2,11 @@ import os
 import json
 from flask import Flask, render_template, redirect, request, session, flash, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
+from bson.objectid import ObjectId 
 from os import path
+
 if path.exists("env.py"):
-    import env 
+    import env as config
 
 
 app = Flask(__name__)
@@ -15,12 +16,8 @@ mongo = PyMongo(app)
 app.secret_key = 'some_secret'
 
 
-
 @app.route('/')
 def index():
-    if 'username' in session:
-        return 'You are logged in as' + session('username')
-
     return render_template("/index.html")
 
 
@@ -38,23 +35,59 @@ def contact():
         flash("Thanks {}, we have received your message".format(
             request.form["name"]
         ))
-    return render_template("contact.html", page_title="Contact")
+    return render_template("/contact.html", page_title="Contact")
 
     """
     recipes adding a login and registration to my recipe-pge to create a database for users, share recipes and 
     find exchange ideas
+    code based on https://github.com/PrettyPrinted/mongodb-user-login/blob/master/login_example.py
+ 
+   """
 
-    """
 
-
-@app.route('/login')
+@app.route('/')
 def login():
-    return render_template('login.html')
+    if 'username' in session:
+        return 'You are logged in as ' + session['username']
+
+    return render_template('index.html')
 
 
-@app.route('/register')
+@app.route('/login', methods=['POST'])
+def signin():
+    users = mongo.db.users
+    login_user = users.find_one({'name': request.form['username']})
+
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('login.html'))
+
+    return 'Invalid username/password combination'
+
+
+@app.route('/register', methods=['POST', 'GET'])
 def register():
-    return''       
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name': request.form['username']})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name': request.form['username'], 'password' : hashpass})
+            session['username'] = request.form['username']
+            return redirect(url_for('register.html'))
+        
+        return 'That username already exists!'
+
+    return render_template('register.html')
+
+ 
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 
 
 @app.route('/recipes')

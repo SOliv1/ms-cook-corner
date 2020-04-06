@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 {% extends 'base.html'%}
-
 {% block content %}
+
 <h3>Edit Category</h3>
 <div class="row">
     <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s12">

@@ -66,7 +66,7 @@ See this in action by going to *About* section of website.
 
 **Getting Themes**  I have chosen the **Start bootstrap theme *Clean Blog* as featured in *CI lessons on Flask Framework*, for a multi-page website. 
 I download the theme by copying the link then go to terminal and mkdir, then cd into it and wget the https://startbootstrap.com/themes/clean-blog/
-I then style accordingly.
+I then style accordingly.   Unzip package with the *unzip gh-pages.zip* command.
 
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 
@@ -163,6 +163,24 @@ In addition, if it is not obvious, you should also describe how to run your code
 #### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
 *Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
 Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
+#### Login - copied code from:
+- https://www.youtube.com/watch?v=vVx1737auSE
+
+- and *login snippet* - copied from https://github.com/joanms/recipe-database/blob/master/app.py:
+if login_user:
+            ### If the username is in the database, hash the password entered in the form and compare it with the hashed password in the database for that user
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+        ### The user sees this message if the username and/or password are invalid
+        flash('Invalid username/password combination.')
+    return render_template('login.html')
+    and also 
+- *code also taken from* 
+ https://github.com/PrettyPrinted/mongodb-user-login/blob/master/login_example.py
+
+ #### Dashboard - based on:- 
+ https://github.com/PrettyPrinted/building_user_login_system/blob/master/start/templates/dashboard.html
 
 ##### Recipes Manager - is based on the basic CRUD functionaity putting it altogether mini project featured in Code Institute DataCentric Module
 with recipes made up by me as an example. T This feature is a basic functioning recipe website.  New features can easily be added to improve the user experience and functionality.
@@ -179,7 +197,6 @@ Updating category
 Deleting category
 
 A nice feature to be incorporated - be able to vote in different recipes and be more specific on recipe ingredients.
-
 
 
 ###Family Hub created by Anna Greaves

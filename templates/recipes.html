@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {% extends 'base.html' %} {% block content %}
-        {% extends 'layout.html' %} {% block recipes %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
-    <title>MS3 CRUD Project</title>
-    </head>
-
+{% extends 'base.html' %} {% block content %}
+{% extends 'layout.html' %} {% block recipes %}
+        <h2>{{ page_title }}</h2>
     <body>
         <header>
             <nav>
