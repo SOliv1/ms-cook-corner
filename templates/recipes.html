@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-{% extends 'layout.html' %} {% block recipes %}
         <h2>{{ page_title }}</h2>
     <body>
         <header>
@@ -20,14 +19,8 @@
                 </div>
             </nav>      
         </header>
-        {% block recipes %}
-        {% for task in tasks %}
-        {{task.task_name}}
-        {{task.category_name}}
-        {{task.task_description}}
-        {{task.due_date}}
-        {{task.is_urgent}}
-        {% endfor %}
+        
+            
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script type="text/javascript">
@@ -57,5 +50,5 @@
             });
         </script>      
     </body>
-{% endblock recipes %}
+{% endblock %}
  
