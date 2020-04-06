@@ -2,7 +2,7 @@
 
 {% extends 'base.html'%} {% block content %}
 
-<h3>Edit Task</h3>
+<h3>Edit Recipe</h3>
 <div class="row">
     <form action="{{ url_for('update_task', task_id=task._id) }}" method="POST" class="col s12">
         <div class="row">
@@ -10,17 +10,26 @@
                 <i class="material-icons prefix">poll</i>
                 <select id="category" name="category_name">
                   <option value="" disabled selected>Choose Category</option>
-                  {% for cat in categories %}
-                      {% if cat.category_name == task.category_name%}
-                      <option value="{{cat.category_name}}" selected >{{cat.category_name}}</option>
-                      {% else %}
-                       <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                    {% endif %}
-                  {% endfor %}
-                </select>
-                <label>Recipe Category</label>
+                  {% for recipe in recipesS %}
+                      {% if recipe.category_name == selected_category %}
+                      <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 recipe-image">
+                        <img class="img-fluid rounded" src="{{recipepage.jpg}}" alt="sign_up">
+                    </div>
+                    <div class="col-md-9 recipe-description">
+                        <h3 class="card-title">{{recipe.recipe_name}}</h3>
+                        <p>{{recipe.description}}</p>
+                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-success">View Recipe</a> 
+                    </div>
+                </div>
             </div>
         </div>
+        {% endif %}
+        {% endfor %}
+        </select>
+                <label>Recipe Category</label>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>

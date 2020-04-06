@@ -20,7 +20,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 @app.route('/')
 def index():
-    return render_template("/index.html")
+    return render_template("/index.html", page_title="Home")
 
 
 @app.route('/about')
@@ -38,63 +38,7 @@ def contact():
             request.form["name"]
         ))
     return render_template("/contact.html", page_title="Contact")
-
-    """
-    recipes adding a login and registration to my recipe-pge to create a database for users, share recipes and 
-    find exchange ideas
-    code based on https://github.com/PrettyPrinted/mongodb-user-login/blob/master/login_example.py
  
-   """
-
-
-@app.route('/')
-def login():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
-
-    return render_template('index.html')
-
-
-@app.route('/login', methods=['POST'])
-def signin():
-    users = mongo.db.users
-    login_user = users.find_one({'name': request.form['username']})
-
-    if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            return redirect(url_for('login.html'))
-
-    return 'Invalid username/password combination'
-
-
-@app.route('/register', methods=['POST', 'GET'])
-def register():
-    if request.method == 'POST':
-        users = mongo.db.users
-        existing_user = users.find_one({'name': request.form['username']})
-
-        if existing_user is None:
-            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'name': request.form['username'], 'password' : hashpass})
-            session['username'] = request.form['username']
-            return redirect(url_for('register.html'))
-        
-        return 'That username already exists!'
-
-    return render_template('register.html')
-
- 
-
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
-
-    """
-    recipes adding tasks/ categories CRUD functionality to my recipe-pge to create a database for users, share recipes and 
-    
-   """
-
 
 @app.route('/recipes')
 def recipes():
@@ -109,51 +53,62 @@ def recipes():
 
 
 @app.route('/')
-@app.route('/get_tasks')
+@app.route('/home')
 def get_tasks():
-    return render_template("tasks.html", 
+    return render_template("recipes.html", 
                            tasks=mongo.db.tasks.find())    
 
 
-@app.route('/add_task')
-def add_task():
-    return render_template('addtask.html',
-                           categories=mongo.db.categories.find())
+@app.route('/view_recipe_category')
+def view_recipe_category(selected_category):
+    all_recipes = mongo.db.recipes.find()
+    return render_template("view_recipe_category.html",
+                           recipes=all_recipes,
+                           selected_category=selected_category,
+                           page_title=selected_category + "Recipes")                          
 
 
-@app.route('/insert_task', methods=['POST'])
-def insert_task():
-    tasks = mongo.db.tasks
-    tasks.insert_one(request.form.to_dict())
-    return redirect(url_for('get_tasks'))
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    tasks = mongo.db.recipes
+    tasks.insert_one(request_form.to_dict())
+    return redirect(url_for('view_recipes'))
 
 
-@app.route('/edit_task/<task_id>')
-def edit_task(task_id):
-    the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_task = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-    return render_template('edittask.html', task=the_task,
+    return render_template('editrecipe.html', recipe=the_recipe,
                            categories=all_categories)
 
 
-@app.route('/update_task/<task_id>', methods=["POST"])
-def update_task(task_id):
-    tasks = mongo.db.tasks
-    tasks.update({'_id': ObjectId(task_id)},
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipe = mongo.db.recipes
+
+    form_data = request.form.to_dict()
+
+    ingredients_list = request.form_data["ingredients"].split("\n")
+    instructions_list = request.form_data["instructions"].split("\n")
+
+    recipe.update({'_id': ObjectId(recipe_id)},
     {
-        'task_name': request.form.get('task_name'),
-        'category_name': request.form.get('category_name'),
-        'task_description': request.form.get('task_description'),
-        'due_date': request.form.get('due_date'),
-        'is_urgent': request.form.get('is_urgent') 
+        'category_name': request.form_data('category_name'),
+        'recipe_name': request.form_data('recipe_name'),
+        'description': request.form_data('description'),
+        'ingredients': reques.form_data('ingredients'),
+        'method': request.form_data('method')
     })
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for("recipes",
+                            recipe_id=the_recipe.inserted_id)
 
 
-@app.route('/delete_task/<task_id>')
-def delete_task(task_id):
-    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
-    return redirect(url_for('get_tasks'))
+@app.route("/delete_recipe_name/<recipe_id>")
+def delete_recipe_name(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    return redirect(url_for("home"))
+
 
 
 @app.route('/get_categories')
@@ -162,10 +117,12 @@ def get_categories():
                            categories=mongo.db.categories.find())
 
 
+
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories')) 
+
 
 
 @app.route('/edit_category/<category_id>')
@@ -182,16 +139,14 @@ def update_category(category_id):
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
 
+    
+
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     category_doc = {'category_name': request.form.get('category_name')}
     mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
 
-
-@app.route('/add_category')
-def add_category():
-    return render_template('addcategory.html')    
 
 
 if __name__ == '__main__':
