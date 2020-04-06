@@ -189,7 +189,6 @@ def insert_category():
     return redirect(url_for('get_categories'))
 
 
-
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')    
