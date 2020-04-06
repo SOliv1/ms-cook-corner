@@ -2,18 +2,20 @@ import os
 import json
 from flask import Flask, render_template, redirect, request, session, flash, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId 
+from bson.objectid import ObjectId
 from os import path
 
 if path.exists("env.py"):
     import env as config
 
-
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'cook_corner'
+app.config["MONGO_DBNAME"] = 'cook_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
 mongo = PyMongo(app)
-app.secret_key = 'some_secret'
+
+MONGO_URI = os.environ.get("MONGO_URI")
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 @app.route('/')
@@ -88,6 +90,10 @@ def register():
 def dashboard():
     return render_template('dashboard.html')
 
+    """
+    recipes adding tasks/ categories CRUD functionality to my recipe-pge to create a database for users, share recipes and 
+    
+   """
 
 
 @app.route('/recipes')

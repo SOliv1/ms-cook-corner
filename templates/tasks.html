@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-
-{% extends 'base.html'%} {% block content %}
-{% extends 'layout.html'%} {% block content %}
+{% extends 'base.html' %} {% block content %}
+        <h2>{{ page_title }}</h2>
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for task in tasks %}
@@ -26,4 +24,4 @@
         {% endfor %}
     </ul>
 </div>
-{% endblock layout%}
+{% endblock %}
