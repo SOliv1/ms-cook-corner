@@ -152,7 +152,7 @@ def update_task(task_id):
 
 @app.route('/delete_task/<task_id>')
 def delete_task(task_id):
-    mongo.db.tasks.delete_task({'_id': ObjectId(task_id)})
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
     return redirect(url_for('get_tasks'))
 
 
