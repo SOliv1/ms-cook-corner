@@ -1,83 +1,72 @@
-<!DOCTYPE html>
 
-{% extends 'base.html'%} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
-<h3>Edit Recipe</h3>
-<div class="row">
-    <form action="{{ url_for('update_task', task_id=task._id) }}" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">poll</i>
-                <select id="category" name="category_name">
-                  <option value="" disabled selected>Choose Category</option>
-                  {% for recipe in recipesS %}
-                      {% if recipe.category_name == selected_category %}
-                      <div class="card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3 recipe-image">
-                        <img class="img-fluid rounded" src="{{recipepage.jpg}}" alt="sign_up">
+<div class="container">
+    <div class="page-title form-heading col-md-12">
+        <h1>Edit Recipe</h1>
+        <h5>You can edit the chosen recipe below.  Hit the 'Update Recipe' button to save your changes.</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" name="updateRecipe" id="updateRecipe">
+                <div class="form-group">
+                    <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
+                        <select class="form-control category-formfield" id="category_name" name="category_name">
+                            <!-- Populate categories from database categories -->
+                            {% for category in categories %}
+                                {% if category.category_name == recipe.category_name %}
+                                <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                                {% else %}
+                                <option value="{{category.category_name}}">{{category.category_name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
                     </div>
-                    <div class="col-md-9 recipe-description">
-                        <h3 class="card-title">{{recipe.recipe_name}}</h3>
-                        <p>{{recipe.description}}</p>
-                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-success">View Recipe</a> 
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Recipe Name</label>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" required data-validation-required-message="Please enter a recipe name." value="{{recipe.recipe_name}}" maxlength="100">
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="far fa-images"></i><label class="form-field-description">Recipe Image</label>
+                    <input type="url" class="form-control" id="image_link" name="image_link" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." value="{{recipe.image_link}}">
                     </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-info"></i><label class="form-field-description">Recipe Description</label>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description." maxlength="1000">{{recipe.description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe." maxlength="3000">{{ingredients}}</textarea>
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-clipboard-list"></i><label class="form-field-description">Instructions</label>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe." maxlength="3000">{{instructions}}</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update Recipe</button>
+                <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+            </form>
         </div>
-        {% endif %}
-        {% endfor %}
-        </select>
-                <label>Recipe Category</label>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">assignment</i>
-                <input id="task_name" name="task_name" type="text" class="validate" value="{{task.task_name}}">
-                <label for="icon_prefix">Task Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
-                <textarea name="task_description" id="task_description" class="materialize-textarea">{{task.task_description}}</textarea>
-                <label for="icon_telephone">Task Description</label>
-            </div>
-        </div>
-        <div class="row" id="matfix">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker">
-                <label for="icon_prefix">Due Date</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="switch">
-                <label>
-                    {% if task.is_urgent %}
-                          <input id="is_urgent" name="is_urgent" type="checkbox" checked>
-                    {% else %}
-                         <input id="it_is_urgent" name="is_urgent" type="checkbox">
-                    {% endif%}
-                  <span class="lever"></span>
-                  Is Urgent
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Edit Task
-                <i class="material-icons right">list</i>
-             </button>
-        </div>
-    </form>
+    </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        due_date = Date.parse('{{task.due_date}}');
-        $('#due_date').pickadate('picker').set('select', due_date, { format: 'dd/mm/yyyy' }).trigger('change');
-    });
+<!-- Alert prompts for editing a recipe or canceling edit process -->
+<script>
+function alert_edit(){
+        alert("Thank you! The recipe has been updated successfully.");
+    }
+function alert_no_edit(){
+        alert("The recipe has not been edited.");
+    }
 </script>
 
 {% endblock %}

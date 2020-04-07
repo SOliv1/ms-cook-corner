@@ -72,7 +72,7 @@ def view_recipe_category(selected_category):
 def insert_recipe():
     tasks = mongo.db.recipes
     tasks.insert_one(request_form.to_dict())
-    return redirect(url_for('view_recipes'))
+    return redirect(url_for('recipes'))
 
 
 @app.route('/edit_recipe/<recipe_id>')
