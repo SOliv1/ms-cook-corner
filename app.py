@@ -56,13 +56,13 @@ def recipes():
 @app.route('/home')
 def get_tasks():
     return render_template("recipes.html", 
-                           tasks=mongo.db.tasks.find())    
+                           tasks=mongo.db.recipes.find())    
 
 
-@app.route('/view_recipe_category')
-def view_recipe_category(selected_category):
+@app.route('/addcategory')
+def addcategory(selected_category):
     all_recipes = mongo.db.recipes.find()
-    return render_template("view_recipe_category.html",
+    return render_template("addcategory.html",
                            recipes=all_recipes,
                            selected_category=selected_category,
                            page_title=selected_category + "Recipes")                          
@@ -77,9 +77,9 @@ def insert_recipe():
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
-    the_task = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-    return render_template('editrecipe.html', recipe=the_recipe,
+    return render_template('edit_recipe.html', recipe=the_recipe,
                            categories=all_categories)
 
 
@@ -87,42 +87,41 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
 
-    form_data = request.form.to_dict()
+    form_data = request.form_data.to_dict()
 
     ingredients_list = request.form_data["ingredients"].split("\n")
-    instructions_list = request.form_data["instructions"].split("\n")
+    instructions_list = request.form_data["method"].split("\n")
 
     recipe.update({'_id': ObjectId(recipe_id)},
-    {
+        {
         'category_name': request.form_data('category_name'),
         'recipe_name': request.form_data('recipe_name'),
         'description': request.form_data('description'),
         'ingredients': reques.form_data('ingredients'),
         'method': request.form_data('method')
-    })
+        })
     return redirect(url_for("recipes",
-                            recipe_id=the_recipe.inserted_id)
+                    recipe_id=the_recipe.inserted_id)
 
+    # Deletes selected recipe from database
 
-@app.route("/delete_recipe_name/<recipe_id>")
-def delete_recipe_name(recipe_id):
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     return redirect(url_for("home"))
 
 
 
-@app.route('/get_categories')
+@app.route('/getcategories')
 def get_categories():
-    return render_template('categories.html',
-                           categories=mongo.db.categories.find())
-
-
+    categories=mongo.db.categories.find())
+    return redirect(url_for("home"))
+                           
 
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories')) 
-
 
 
 @app.route('/edit_category/<category_id>')
