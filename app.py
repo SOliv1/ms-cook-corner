@@ -9,7 +9,7 @@ if path.exists("env.py"):
     import env as config
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'cook_manager'
+app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
@@ -39,113 +39,122 @@ def contact():
         ))
     return render_template("/contact.html", page_title="Contact")
  
+    """
+    recipes adding the CRUD functionality to my recipe to create a users database, share recipes and find exchange ideas
+
+    """
+
 
 @app.route('/recipes')
-def recipes():
-    return render_template("recipes.html", page_title="Recipes")
-
-
-    """
-    recipes adding the CRUD functionality to my recipe to create a database for users, share recipes and 
-    find exchange ideas
-
-    """
-
-
-@app.route('/')
-@app.route('/home')
-def get_tasks():
+@app.route('/recipes')
+def get_recipes():
     return render_template("recipes.html", 
-                           tasks=mongo.db.recipes.find())    
+                           tasks=mongo.db.recipes.find())
 
-
-@app.route('/addcategory')
-def addcategory(selected_category):
+                             
+# Route to view_recipe_category page, providing data for all recipes in DB
+@app.route("/view_recipe_category/<selected_category>")
+def view_recipe_category(selected_category):
     all_recipes = mongo.db.recipes.find()
-    return render_template("addcategory.html",
+    return render_template("view_recipe_category.html",
                            recipes=all_recipes,
                            selected_category=selected_category,
-                           page_title=selected_category + "Recipes")                          
+                           page_title=selected_category + "Recipes")
 
 
-@app.route('/insert_recipe', methods=['POST'])
+# Route to view_recipe page, providing data for the selected recipe
+@app.route("/view_recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html",
+                           recipe=the_recipe,
+                           page_title="View Recipe")
+
+
+# Route to add_recipe page, providing data for population of category formfield
+@app.route("/add_recipes")
+def add_recipes():
+    all_categories = mongo.db.categories.find()
+    return render_template("add_recipe.html",
+                           categories=all_categories,
+                           page_title="Add Your Own Recipe")
+
+
+# Inserts the new recipe into the database with user inputs
+@app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
-    tasks = mongo.db.recipes
-    tasks.insert_one(request_form.to_dict())
-    return redirect(url_for('recipes'))
+    recipes = mongo.db.recipes
+
+    form_data = request.form.to_dict()
+
+    ingredients_list = form_data["ingredients"].split("\n")
+    instructions_list = form_data["instructions"].split("\n")
+
+    the_recipe = recipes.insert_one(
+        {
+         "category_name": form_data["category_name"],
+         "recipe_name": form_data["recipe_name"],
+         "image_link": form_data["image_link"],
+         "description": form_data["description"],
+         "ingredients": ingredients_list,
+         "instructions": instructions_list
+        }
+    )
+
+    return redirect(url_for("view_recipe",
+                            recipe_id=the_recipe.inserted_id))
 
 
-@app.route('/edit_recipe/<recipe_id>')
+# Route to edit_recipe page, providing data for population of formfield values
+@app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-    return render_template('edit_recipe.html', recipe=the_recipe,
-                           categories=all_categories)
+    ingredients_list = [ingredient for ingredient
+                        in the_recipe['ingredients']]
+    instructions_list = [instruction for instruction
+                         in the_recipe['instructions']]
+
+    ingredients_text = "\n".join(ingredients_list)
+    instructions_text = "\n".join(instructions_list)
+
+    return render_template("edit_recipe.html",
+                           recipe=the_recipe,
+                           categories=all_categories,
+                           ingredients=ingredients_text,
+                           instructions=instructions_text,
+                           page_title="Edit Recipe")
 
 
-@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+# Updates the recipe in the database with user changes
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
 
-    form_data = request.form_data.to_dict()
+    form_data = request.form.to_dict()
 
-    ingredients_list = request.form_data["ingredients"].split("\n")
-    instructions_list = request.form_data["method"].split("\n")
+    ingredients_list = form_data["ingredients"].split("\n")
+    instructions_list = form_data["instructions"].split("\n")
 
-    recipe.update({'_id': ObjectId(recipe_id)},
-        {
-        'category_name': request.form_data('category_name'),
-        'recipe_name': request.form_data('recipe_name'),
-        'description': request.form_data('description'),
-        'ingredients': reques.form_data('ingredients'),
-        'method': request.form_data('method')
-        })
-    return redirect(url_for("recipes",
-                    recipe_id=the_recipe.inserted_id)
+    recipe.update({"_id": ObjectId(recipe_id)},
+                  {
+                   "category_name": form_data["category_name"],
+                   "recipe_name": form_data["recipe_name"],
+                   "image_link": form_data["image_link"],
+                   "description": form_data["description"],
+                   "ingredients": ingredients_list,
+                   "instructions": instructions_list
+                   })
 
-    # Deletes selected recipe from database
+    return redirect(url_for("view_recipe",
+                            recipe_id=recipe_id))
 
+
+# Deletes the selected recipe from database
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     return redirect(url_for("home"))
-
-
-
-@app.route('/getcategories')
-def get_categories():
-    categories=mongo.db.categories.find())
-    return redirect(url_for("home"))
-                           
-
-@app.route('/delete_category/<category_id>')
-def delete_category(category_id):
-    mongo.db.categories.remove({'_id': ObjectId(category_id)})
-    return redirect(url_for('get_categories')) 
-
-
-@app.route('/edit_category/<category_id>')
-def edit_category(category_id):
-    return render_template('editcategory.html',
-                           category=mongo.db.categories.find_one(
-                            {'_id': ObjectId(category_id)}))
-
-
-@app.route('/update_category/<category_id>', methods=['POST'])
-def update_category(category_id):
-    mongo.db.categories.update(
-        {'_id': ObjectId(category_id)},
-        {'category_name': request.form.get('category_name')})
-    return redirect(url_for('get_categories'))
-
-    
-
-@app.route('/insert_category', methods=['POST'])
-def insert_category():
-    category_doc = {'category_name': request.form.get('category_name')}
-    mongo.db.categories.insert_one(category_doc)
-    return redirect(url_for('get_categories'))
-
 
 
 if __name__ == '__main__':
