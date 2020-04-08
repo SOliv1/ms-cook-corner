@@ -1,7 +1,7 @@
-
 {% extends 'base.html' %} 
 {% block content %}
 <h2>{{ page_title }}</h2>
+
 <p>Mason Cash &amp; Co was a pottery company, based in Woodville, Swadlincote, Derbyshire, U.K. They specialised in making a range of earthenware and stoneware kitchenware including mixing bowls, pudding basins and petware. The Company were most well known for their range of 'Cane Bowls'. Mason Cash had been producing mixing bowls during the 1800s, but in 1901 they designed and manufactured the very first iconic Mason Cash mixing bowl. The design of the Mason Cash mixing bowl has barely changed in over 100 years and can be recognised by its original and distinctive pattern on the outside of the bowl. Mason Cash is now a brand of the leading household supplier and Family owned Rayware Group, known for their vibrant British Brands.</p>
 {% for member in company %} 
         {% if loop.index % 2 != 0 %}
@@ -28,6 +28,7 @@
         {% if loop.index != 9 %}
             <hr class="featurette-divider"> 
         {% endif %} 
+    
     {% endfor %} 
+
 {% endblock %}
-</html>
