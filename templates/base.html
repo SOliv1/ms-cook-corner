@@ -6,6 +6,16 @@
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_OxfJZYwpeVsS9XIdsUY0r");
+            emailjs.send("gmail", "cookcorner", {
+                name: "Cookcorner",
+                notes: "I would like to sign up with a chance to win....."
+            }) 
+        })();
+    </script>
 </head>
 
 <body>
