@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("user_OxfJZYwpeVsS9XIdsUY0r");
-            emailjs.send("gmail", "cookcorner", {
-                name: "Cookcorner",
-                notes: "I would like to sign up with a chance to win....."
-            }) 
-        })();
-    </script>
 </head>
 
 <body>
@@ -107,14 +98,18 @@
     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Materialize core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-        })
-    </script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_OxfJZYwpeVsS9XIdsUY0r");
+            emailjs.send("gmail", "cookcorner", {
+                name: "Cookcorner",
+                notes: "I would like to sign up with a chance to win....."
+            }) 
+        })();
+    </script>
 </body>
 
-</html>
+<html>
