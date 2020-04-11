@@ -45,10 +45,10 @@ p {
     box-sizing: border-box;
     text-align: justify;
     margin-bottom: 30px;
-    color: rgb(25, 24, 24);
+    color: rgb(249, 246, 246);
 }
 
-p .something {
+p .carousel-lead {
     color: #fff;
 }
 
