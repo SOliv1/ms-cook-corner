@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="static/img/in-the-forest.jpg">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Cook Corner</h1>
+                    <p class ="carousel-lead">Create a recipe collection here </p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Create</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="carousel-item">
+            <img class="second-slide" src="static/img/linear.jpg" alt="Linea Collection">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>View recipes here </h1>
+                        <p class ="carousel-lead">View your favourite recipes.  We have added some popular ones to get you started!</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Get Started</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+            <img class="third-slide" src="static/img/heart_large.jpg" alt="Get Baking">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>Edit and update recipes here</h1>
+                        <p class ="carousel-lead">Once you have added your recipes you can edit, delete and update your recipes.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Edit and Update</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</main>    
+{% endblock %}        

@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request, session, flash, url_for
+from flask import Flask, render_template, redirect, request, flash, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -11,7 +11,7 @@ if path.exists("env.py"):
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
-
+recipes = "mongo.db.recipes.find()"
 mongo = PyMongo(app)
 
 MONGO_URI = os.environ.get("MONGO_URI")
@@ -40,16 +40,13 @@ def contact():
     return render_template("/contact.html", page_title="Contact")
  
     """
-    recipes adding the CRUD functionality to my recipe to create a users database, share recipes and find exchange ideas
-
+    recipes adding the CRUD functionality to my recipe to create a users share recipes and find exchange ideas
     """
 
-
-@app.route('/recipes')
-@app.route('/recipes')
-def get_recipes():
-    return render_template("recipes.html", 
-                           tasks=mongo.db.recipes.find())
+@app.route('/add_recipes', methods=["GET", "POST"])
+def add_recipes():
+    return render_template("/add_recipes.html", page_title="Recipes")
+    recipes=mongo.db.recipes.find()
 
                              
 # Route to view_recipe_category page, providing data for all recipes in DB
@@ -72,8 +69,8 @@ def view_recipe(recipe_id):
 
 
 # Route to add_recipe page, providing data for population of category formfield
-@app.route("/add_recipes")
-def add_recipes():
+@app.route("/add_recipe")
+def add_recipe():
     all_categories = mongo.db.categories.find()
     return render_template("add_recipe.html",
                            categories=all_categories,
