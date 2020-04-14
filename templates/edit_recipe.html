@@ -1,0 +1,73 @@
+{% extends 'base.html' %} 
+{% block content %}   
+    <h2>{{ page_title }}</h2>
+
+<div class="container">
+    <div class="page-title form-heading col-md-12">
+        <h1>Edit Recipe</h1>
+        <h5>You can edit one or multiple values of the chosen recipe below. Make sure to hit the 'Update Recipe' button once you're satisfied to save your changes.</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" name="updateRecipe" id="updateRecipe">
+                <div class="form-group">
+                    <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
+                        <select class="form-control category-formfield" id="category_name" name="category_name">
+                            <!-- Populate categories from database categories -->
+                            {% for category in categories %}
+                                {% if category.category_name == recipe.category_name %}
+                                <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                                {% else %}
+                                <option value="{{category.category_name}}">{{category.category_name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Recipe Name</label>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" required data-validation-required-message="Please enter a recipe name." value="{{recipe.recipe_name}}" maxlength="100">
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="far fa-images"></i><label class="form-field-description">Recipe Image</label>
+                    <input type="url" class="form-control" id="image_link" name="image_link" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." value="{{recipe.image_link}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-info"></i><label class="form-field-description">Recipe Description</label>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description." maxlength="1000">{{recipe.description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe." maxlength="3000">{{ingredients}}</textarea>
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-clipboard-list"></i><label class="form-field-description">Instructions</label>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe." maxlength="3000">{{instructions}}</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update Recipe</button>
+                <a href="{{url_for('view_recipe')}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Alert prompts for editing a recipe or canceling edit process -->
+<script>
+function alert_edit(){
+        alert("Thank you! The recipe has been updated successfully.");
+    }
+function alert_no_edit(){
+        alert("The recipe has not been edited.");
+    }
+</script>
+
+{% endblock %}

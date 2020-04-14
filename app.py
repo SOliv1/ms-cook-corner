@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 recipes = "mongo.db.recipes.find()"
+recipe = "mongo.db.recipe.find()"
 mongo = PyMongo(app)
 
 MONGO_URI = os.environ.get("MONGO_URI")
@@ -43,12 +44,12 @@ def contact():
     recipes adding the CRUD functionality to my recipe to create a users share recipes and find exchange ideas
     """
 
-@app.route('/add_recipes', methods=["GET", "POST"])
-def add_recipes():
-    return render_template("/add_recipes.html", page_title="Recipes")
-    recipes=mongo.db.recipes.find()
 
-                             
+@app.route('/recipes')
+def recipes():
+    return render_template("/recipes.html", page_title="Recipes")
+
+
 # Route to view_recipe_category page, providing data for all recipes in DB
 @app.route("/view_recipe_category/<selected_category>")
 def view_recipe_category(selected_category):
@@ -69,12 +70,12 @@ def view_recipe(recipe_id):
 
 
 # Route to add_recipe page, providing data for population of category formfield
-@app.route("/add_recipe")
+@app.route("/add_recipe/<recipe_id>")
 def add_recipe():
     all_categories = mongo.db.categories.find()
     return render_template("add_recipe.html",
                            categories=all_categories,
-                           page_title="Add Your Own Recipe")
+                           page_title="Add a Recipe")
 
 
 # Inserts the new recipe into the database with user inputs
@@ -93,8 +94,8 @@ def insert_recipe():
          "recipe_name": form_data["recipe_name"],
          "image_link": form_data["image_link"],
          "description": form_data["description"],
-         "ingredients": ingredients_list,
-         "instructions": instructions_list
+         "recipe_ingredients": ingredients_list,
+         "recipe_instructions": instructions_list
         }
     )
 
@@ -118,20 +119,20 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html",
                            recipe=the_recipe,
                            categories=all_categories,
-                           ingredients=ingredients_text,
-                           instructions=instructions_text,
+                           recipe_ingredients=ingredients_text,
+                           recipe_instructions=instructions_text,
                            page_title="Edit Recipe")
 
 
 # Updates the recipe in the database with user changes
+
 @app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
-    recipe = mongo.db.recipes
 
     form_data = request.form.to_dict()
 
-    ingredients_list = form_data["ingredients"].split("\n")
-    instructions_list = form_data["instructions"].split("\n")
+    ingredients_list = form_data["recipe_ingredients"].split("\n")
+    instructions_list = form_data["recipe_instructions"].split("\n")
 
     recipe.update({"_id": ObjectId(recipe_id)},
                   {
@@ -139,8 +140,8 @@ def update_recipe(recipe_id):
                    "recipe_name": form_data["recipe_name"],
                    "image_link": form_data["image_link"],
                    "description": form_data["description"],
-                   "ingredients": ingredients_list,
-                   "instructions": instructions_list
+                   "recipe_ingredients": ingredients_list,
+                   "recipe_instructions": instructions_list
                    })
 
     return redirect(url_for("view_recipe",

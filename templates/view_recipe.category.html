@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ page_title }}</h2>
+    
+    <!-- Creates a recipe card for each recipe in the chosen category by iterating through database collection based on selected category -->
+    {% for recipe in recipes %}
+        {% if recipe.category_name == selected_category %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 recipe-image">
+                        <img class="img-fluid rounded" src="{{recipe.image_link}}" alt="">
+                    </div>
+                    <div class="col-md-9 recipe-description">
+                        <h3 class="card-title">{{recipe.recipe_name}}</h3>
+                        <p>{{recipe.description}}</p>
+                            <a href="{{url_for('view_recipe')}}" class="btn btn-success">View Recipe</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+    {% endfor %}
+    
+{% endblock %} 
