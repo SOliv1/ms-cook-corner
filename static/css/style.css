@@ -12,7 +12,12 @@
 
 /*-- About-Styles ---------------------------------------------------- */
 
-
+p.about  {
+    box-sizing: border-box;
+    text-align: justify;
+    margin-bottom: 30px;
+    color: rgb(24, 24, 25);
+}
 
 
 
