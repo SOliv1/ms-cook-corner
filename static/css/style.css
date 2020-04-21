@@ -4,11 +4,12 @@
     width: 100%;
 }
 
-
-
-
-
-
+#home-bottom-section {
+	background:url("../static/img/homepage-bottom-banner.jpg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	padding: 50px;
+	text-align:center;
+}
 
 /*-- About-Styles ---------------------------------------------------- */
 
@@ -127,7 +128,7 @@ p span {
 
 
 .image {
-    background-image: url("../images/backstageband.png");
+    background-image: url("../img/");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;

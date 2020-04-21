@@ -1,6 +1,8 @@
 import os
 import json
 from flask import Flask, render_template, redirect, request, flash, url_for
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -51,7 +53,7 @@ def recipes():
 
 
 # Route to view_recipe_category page, providing data for all recipes in DB
-@app.route("/recipes/view_recipe_category/<selected_category>")
+@app.route("/view_recipe_category/<selected_category>")
 def view_recipe_category(selected_category):
     all_recipes = mongo.db.recipes.find()
     return render_template("view_recipe_category.html",
@@ -60,7 +62,7 @@ def view_recipe_category(selected_category):
 
 
 # Route to view_recipe page, providing data for the selected recipe
-@app.route("/recipes/view_recipe/<recipe_id>")
+@app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("view_recipe.html",
@@ -69,7 +71,7 @@ def view_recipe(recipe_id):
 
 
 # Route to add_recipe page, providing data for population of category formfield
-@app.route("/recipes/add_recipe")
+@app.route("/add_recipe")
 def add_recipe():
     all_categories = mongo.db.categories.find()
     return render_template("add_recipe.html",
@@ -78,7 +80,7 @@ def add_recipe():
 
 
 # Inserts the new recipe into the database with user inputs
-@app.route("/recipes/insert_recipe", methods=["POST"])
+@app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
 
@@ -121,7 +123,7 @@ def edit_recipe(recipe_id):
 
 # Updates the recipe in the database with user changes
 
-@app.route("/recipes/update_recipe/<recipe_id>", methods=["POST"])
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
 
     form_data = request.form.to_dict()
@@ -144,7 +146,7 @@ def update_recipe(recipe_id):
 
 
 # Deletes the selected recipe from database
-@app.route("/recipes/delete_recipe/<recipe_id>")
+@app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     return redirect(url_for("home"))
