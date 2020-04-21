@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <div class="controls">
                     <i class="far fa-images"></i><label class="form-field-description">Recipe Image</label>
-                    <input class="form-control" id="image_link" name="image_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." placeholder="Paste link to recipe image here">
+                    <input class="form-control" id="image_link" name="recipe_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." placeholder="Paste link to recipe image here">
                     </div>
                 </div>
                 <div class="form-group">
@@ -37,17 +37,17 @@
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
-                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" maxlength="3000">Enter ingredients here (Separate each ingredient on a new line by hitting the enter key after each ingredient)</textarea>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" maxlength="3000" placeholder="Enter ingredients here. Separate each ingredient on a new line by hitting the enter key after each ingredient"></textarea>
                     </div>
                 </div>            
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-clipboard-list"></i><label class="form-field-description">Instructions</label>
-                    <textarea class="form-control" id="instructions" name="instructions" rows="5" maxlength="3000">Enter instructions here (Separate each instruction on a new line by hitting the enter key after each instruction)</textarea>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="5" maxlength="3000" placeholder="Enter instructions here. Separate each instruction on a new line by hitting the enter key after each instruction"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success" id="sendMessageButton">Submit Recipe</button>
-                <a class="btn btn-success" href="{{url_for('home')}}">Cancel</a>
+                <a class="btn btn-success" href="{{url_for('index')}}">Cancel</a>
             </form>
         </div>
     </div>
