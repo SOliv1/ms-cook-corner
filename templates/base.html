@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Navigation for Home Page -->
 <head>
+    <meta charset="utf-8">  
     <title>Cook Corner</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <meta name="viewpoint" content="width=device-width, initial scale-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
 </head>
@@ -31,8 +31,20 @@
                         <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('recipes') }}">Add A Recipe</a>
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('view_recipe_category', selected_category='category._id') }}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes, recipe=the_recipe, recipe_id=recipe._id') }}">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('edit_recipe, recipe_id=recipe._id') }}">Edit Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('add_recipe, recipe_id=recipe._id') }}">Add Recipes</a>
+                    </li>          
                 </ul>
             </div>
         </div>
@@ -52,14 +64,14 @@
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
+    
     <div class="container">
-        {% block content %} {% endblock %}
+      {% block content %}
+      {% endblock %} 
+      
     </div>
 
     <hr>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -91,7 +103,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+                    <p class="copyright text-muted">Copyright &copy; Sara Oliver Website 2020</p>
                 </div>
             </div>
         </div>
@@ -105,16 +117,17 @@
     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Materialize core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-        })
-    </script>  
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_OxfJZYwpeVsS9XIdsUY0r");
+            emailjs.send("gmail", "cookcorner", {
+                name: "Cookcorner",
+                notes: "I would like to sign up with a chance to win....."
+            }) 
+        })();
+    </script>
 </body>
-
-</html>
+<html>

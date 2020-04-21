@@ -4,15 +4,21 @@
     width: 100%;
 }
 
-
-
-
-
-
+#home-bottom-section {
+	background:url("../static/img/homepage-bottom-banner.jpg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	padding: 50px;
+	text-align:center;
+}
 
 /*-- About-Styles ---------------------------------------------------- */
 
-
+p.about  {
+    box-sizing: border-box;
+    text-align: justify;
+    margin-bottom: 30px;
+    color: rgb(24, 24, 25);
+}
 
 
 
@@ -45,10 +51,18 @@ p {
     box-sizing: border-box;
     text-align: justify;
     margin-bottom: 30px;
-    color: rgb(23, 20, 20);
+    color: rgb(228, 231, 234);
 }
 
-p .something {
+p .carousel-lead {
+    color: #fff;
+}
+
+p span {
+    color: #a7daef;
+}
+
+p .carousel-lead {
     color: #fff;
 }
 
@@ -69,6 +83,12 @@ p span {
     min-width: 100%;
     height: 32rem;
 }
+
+
+.carousel-indicators {
+    color:#5e8bb5
+}
+
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -108,7 +128,7 @@ p span {
 
 
 .image {
-    background-image: url("../images/backstageband.png");
+    background-image: url("../img/");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -145,11 +165,5 @@ p span {
     color: #ce5a2b;
 }
 
-/*-- Contact-Styles ---------------------------------------------------- */
 
 
-/*-- Recipes-Styles ---------------------------------------------------- */
-
-body {
-    background-color: rgb(255, 255, 255);
-}

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-{% extends 'base.html' %} {% block content %}
-<h2>{{ page_title }}</h2>
+{% extends 'base.html' %} 
 
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+{% block content %}
+    <h2>{{ page_title }}</h2>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
         {% with messages = get_flashed_messages() %} {% if messages %}
         <ul class="flashes">
             {% for message in messages %}
@@ -13,11 +13,9 @@
         </ul>
         {% endif %} {% endwith %}
     
-        <div class="col-lg-8 col-md-10 mx-auto">
-        
-
-        <p>Want to get in touch? Fill out the form below to receive our monthly newsletters packed with recipes, giveaways, latest hints and tips and a healthy baking guide.</p>
-        <h5>Sign up today for a chance to win a special Cook Corner bundle and receive a healthy baking guide.</h5>
+    <div class="col-lg-8 col-md-10 mx-auto">
+            <p>Want to get in touch? Fill out the form below to receive our monthly newsletters packed with recipes, giveaways, latest hints and tips and a healthy baking guide.</p>
+            <h5>Sign up today for a chance to win a special Cook Corner bundle and receive a healthy baking guide.</h5>
         <form method="POST" name="sentMessage" id="contactForm">
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
@@ -53,6 +51,5 @@
                 <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
             </div>
         </form>
-    </div>
-</div>
+    </div>    
 {% endblock %}

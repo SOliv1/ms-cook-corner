@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="page-title form-heading col-md-12">
+        <h1>Add Recipe</h1>
+        <h5>Use the form below, to add your own recipes.</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <form action="{{url_for('insert_recipe')}}" method="POST" name="addRecipe" id="addRecipe">
+                <div class="form-group">
+                    <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
+                        <select class="form-control category-formfield" id="category_name" name="category_name">
+                            <!-- Populates categories from database categories -->
+                            {% for category in categories %}
+                            <option>{{category.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Recipe Name</label>
+                    <input class="form-control" id="recipe_name" name="recipe_name" type="text" required data-validation-required-message="Please enter a recipe name." placeholder="e.g.Cottage Pie for two" maxlength="100">
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="far fa-images"></i><label class="form-field-description">Recipe Image</label>
+                    <input class="form-control" id="image_link" name="image_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." placeholder="Paste link to recipe image here">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-info"></i><label class="form-field-description">Recipe Description</label>
+                    <input type="text" class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description." placeholder="Please enter a short recipe description" maxlength="1000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" maxlength="3000">Enter ingredients here (Separate each ingredient on a new line by hitting the enter key after each ingredient)</textarea>
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-clipboard-list"></i><label class="form-field-description">Instructions</label>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="5" maxlength="3000">Enter instructions here (Separate each instruction on a new line by hitting the enter key after each instruction)</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" id="sendMessageButton">Submit Recipe</button>
+                <a class="btn btn-success" href="{{url_for('home')}}">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
