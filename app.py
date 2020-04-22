@@ -13,6 +13,7 @@ if path.exists("env.py"):
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook_corner'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+category = "mongo.db.categories.find()"
 recipes = "mongo.db.recipes.find()"
 recipe = "mongo.db.recipe.find()"
 mongo = PyMongo(app)
@@ -47,7 +48,7 @@ def contact():
     """
 
 
-@app.route('/recipes')
+@app.route('/recipe')
 def recipes():
     return render_template("/recipes.html", page_title="Recipes")
 
@@ -65,6 +66,7 @@ def view_recipe_category(selected_category):
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    print()
     return render_template("view_recipe.html",
                            recipe=the_recipe,
                            page_title="View Recipe")
@@ -83,7 +85,6 @@ def add_recipe():
 @app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
-
     form_data = request.form.to_dict()
 
     ingredients_list = form_data["ingredients"].split("\n")
@@ -93,7 +94,7 @@ def insert_recipe():
         {
          "category_name": form_data["category_name"],
          "recipe_name": form_data["recipe_name"],
-         "image_link": form_data["image_link"],
+         "recipe_link": form_data["recipe_link"],
          "description": form_data["description"],
          "recipe_ingredients": ingredients_list,
          "recipe_instructions": instructions_list

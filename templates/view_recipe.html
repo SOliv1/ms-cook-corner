@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="card-title recipe-title">{{recipe.recipe_name}}</h2>
+                    <img src="{{ recipe.recipe_link }}">
                     <h5 class="card-title ingredients-heading"><i class="fas fa-info"></i>Description</h5>
                     <p>{{recipe.description}}</p>
                     <h5 class="card-title ingredients-heading"><i class="fas fa-list-ul"></i>Ingredients</h5>
@@ -24,7 +25,7 @@
                     <div class="recipe-buttons">
                         <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-success">Edit Recipe</a>
                         <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete Recipe</button>
-                        <a href="{{url_for('home')}}" class="btn btn-success">Home</a>
+                        <a href="{{url_for('index')}}" class="btn btn-success">Home</a>
                     </div>
                 </div>
             </div>
