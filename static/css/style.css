@@ -47,16 +47,20 @@ body {
     z-index: 10;
 }
 
-p {
+p .carousel-lead {
     box-sizing: border-box;
     text-align: justify;
     margin-bottom: 30px;
-    color: rgb(228, 231, 234);
+    color: rgb(255, 255, 255);
 }
 
+
+
+/*
 p .carousel-lead {
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
+*/
 
 p span {
     color: #a7daef;

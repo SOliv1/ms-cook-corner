@@ -22,6 +22,12 @@ MONGO_URI = os.environ.get("MONGO_URI")
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
+@app.context_processor
+def inject_categories():
+    all_categories = mongo.db.categories.find()
+    return dict(categories=all_categories)
+
+
 @app.route('/')
 def index():
     return render_template("/index.html", page_title="Home")
@@ -50,7 +56,8 @@ def contact():
 
 @app.route('/recipe')
 def recipes():
-    return render_template("/recipes.html", page_title="Recipes")
+    all_recipes = mongo.db.recipes.find()
+    return render_template("/recipes.html", recipes=all_recipes, page_title="Recipes")
 
 
 # Route to view_recipe_category page, providing data for all recipes in DB
@@ -66,7 +73,7 @@ def view_recipe_category(selected_category):
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print()
+    print(the_recipe)
     return render_template("view_recipe.html",
                            recipe=the_recipe,
                            page_title="View Recipe")
@@ -110,15 +117,15 @@ def insert_recipe():
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-
-    ingredients_list = form_data["ingredients"].split("\n")
-    instructions_list = form_data["instructions"].split("\n")
-
+    # form_data = request.form.to_dict()
+    # /ingredients_list = form_data["ingredients"].split("\n")
+    # instructions_list = form_data["instructions"].split("\n")/
+    print(the_recipe)
     return render_template("edit_recipe.html",
                            recipe=the_recipe,
                            categories=all_categories,
-                           recipe_ingredients=ingredients_list,
-                           recipe_instructions=instructions_list,
+                        #  recipe_ingredients=ingredients_list,
+                        #  recipe_instructions=instructions_list,
                            page_title="Edit Recipe")
 
 
@@ -128,19 +135,18 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
 
     form_data = request.form.to_dict()
-
     ingredients_list = form_data["recipe_ingredients"].split("\n")
+    ingredients_list = [x.strip() for x in ingredients_list]
     instructions_list = form_data["recipe_instructions"].split("\n")
-
-    recipe.update({"_id": ObjectId(recipe_id)},
-                  {
+    the_recipe = mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+            {"$set": {    
                    "category_name": form_data["category_name"],
                    "recipe_name": form_data["recipe_name"],
-                   "image_link": form_data["image_link"],
+                   "recipe_link": form_data["recipe_link"],
                    "description": form_data["description"],
                    "recipe_ingredients": ingredients_list,
                    "recipe_instructions": instructions_list
-                   })
+            }})
 
     return redirect(url_for("view_recipe",
                             recipe_id=recipe_id))
@@ -150,7 +156,7 @@ def update_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    return redirect(url_for("home"))
+    return redirect(url_for("index"))
 
 
 if __name__ == '__main__':
