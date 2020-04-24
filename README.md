@@ -75,6 +75,7 @@ $ git commit -am ""
 $ git push heroku master
 
 
+
 **Flask** I add all html pages so they can be rendered in *Flask to the Folder Name "templates"*.  Eventually we will be able to deploy this website on Heroku.  More on this later.
 I have rendered the home, about and contact pages using flask and basic jinga template language to make it easier to type the paths and render each of the templates.
 for example: we add inside the
@@ -168,14 +169,6 @@ Whenever it is feasible, prefer to automate your tests, and if you've done so, p
 
 For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
 
-### Contact form:
-#### Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-
 
 ### Deployment
 #### Cloning a repository to GitHub Desktop
@@ -185,10 +178,12 @@ Under my repository name, I click to clone my repository in Desktop. I follow th
 
 
 
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
+(e.g. GitHub Pages or Heroku).
+When trying to deploy my project to Heroku I hit a bug *- AttributeError
+AttributeError: 'NoneType' object has no attribute 'categories'*
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+
+To resolve this I ...
 
 Different values for environment variables (Heroku Config Vars)?
 Different configuration files?
@@ -205,9 +200,14 @@ TypeError: 'method' object does not support item assignment
 
 I managed to fix my problem with my env.py file. I was incorrectly using the get method. os.environ.get["MONGO_URI"] should have been os.environ["MONGO_URI"] .
 
-
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
+
+Slack community - *various borrowed code snippets* See below credits. I often change them
+                     when some of the code did not work for me.  However it did
+                     lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and checking at the bottom of my jinga codes for the errors.
+                     This experience gave me more confidence to debug code.
+
 
 ## Credits
 ### Content
@@ -275,4 +275,9 @@ I received inspiration for this project from:-
 
 - "*Mason Cash - Buy British*
 - Brian Machira - *CI Mentor*
-- 
+- Anthony Herbet-*Pretty Printed, Flask Extensions videos'
+
+- Slack community - *various borrowed code snippets* but then I changed them
+                     when some of the code did not work for me.  However it did
+                     lead me on to thinking again about seeing a line of your code highlighted in an error that i had been seeing, and checking at the bottom of my jinga codes for the errors.
+                     It also gave me more confidence to debug code.
