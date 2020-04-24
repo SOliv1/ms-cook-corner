@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="card-title recipe-title">{{recipe.recipe_name}}</h2>
-                    <img src="{{ recipe.recipe_link }}">
+                    <img class="img-fluid rounded" img="" src="{{ recipe.image_link }}" alt="">
                     <h5 class="card-title ingredients-heading"><i class="fas fa-info"></i>Description</h5>
                     <p>{{recipe.description}}</p>
                     <h5 class="card-title ingredients-heading"><i class="fas fa-list-ul"></i>Ingredients</h5>
@@ -45,6 +45,7 @@ function confirm_del(){
         }
     }
 </script>
+
  
 {% endblock %}
 

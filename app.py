@@ -1,8 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request, flash, url_for
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -38,42 +36,25 @@ def about():
     data = []
     with open("data/company.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("/about.html", page_title="About", company=data)
-
-
-@app.route('/contact', methods=["GET", "POST"])
-def contact():
-    if request.method == "POST":
-        flash("Thanks {}, we have received your message".format(
-            request.form["name"]
-        ))
-    return render_template("/contact.html", page_title="Contact")
- 
+    return render_template("/about.html", page_title="About", company=data) 
+    
     """
     recipes adding the CRUD functionality to my recipe to create a users share recipes and find exchange ideas
     """
 
 
-@app.route('/recipe')
+@app.route('/view_recipes')
 def recipes():
     all_recipes = mongo.db.recipes.find()
-    return render_template("/recipes.html", recipes=all_recipes, page_title="Recipes")
-
-
-# Route to view_recipe_category page, providing data for all recipes in DB
-@app.route("/view_recipe_category/<selected_category>")
-def view_recipe_category(selected_category):
-    all_recipes = mongo.db.recipes.find()
-    return render_template("view_recipe_category.html",
+    return render_template("recipes.html",
                            recipes=all_recipes,
-                           page_title="Category")
+                           page_title="View Recipes")
 
 
 # Route to view_recipe page, providing data for the selected recipe
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print(the_recipe)
     return render_template("view_recipe.html",
                            recipe=the_recipe,
                            page_title="View Recipe")
@@ -101,7 +82,7 @@ def insert_recipe():
         {
          "category_name": form_data["category_name"],
          "recipe_name": form_data["recipe_name"],
-         "recipe_link": form_data["recipe_link"],
+         "image_link": form_data["image_link"],
          "description": form_data["description"],
          "recipe_ingredients": ingredients_list,
          "recipe_instructions": instructions_list
@@ -117,15 +98,10 @@ def insert_recipe():
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-    # form_data = request.form.to_dict()
-    # /ingredients_list = form_data["ingredients"].split("\n")
-    # instructions_list = form_data["instructions"].split("\n")/
     print(the_recipe)
     return render_template("edit_recipe.html",
                            recipe=the_recipe,
                            categories=all_categories,
-                        #  recipe_ingredients=ingredients_list,
-                        #  recipe_instructions=instructions_list,
                            page_title="Edit Recipe")
 
 
@@ -142,7 +118,7 @@ def update_recipe(recipe_id):
             {"$set": {    
                    "category_name": form_data["category_name"],
                    "recipe_name": form_data["recipe_name"],
-                   "recipe_link": form_data["recipe_link"],
+                   "image_link": form_data["image_link"],
                    "description": form_data["description"],
                    "recipe_ingredients": ingredients_list,
                    "recipe_instructions": instructions_list
