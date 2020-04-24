@@ -27,7 +27,7 @@
                     <div class="carousel-caption">
                         <h1>View recipes here </h1>
                         <p class ="carousel-lead">View your favourite recipes.  We have added some popular ones to get you started!</p>
-                        <a href="" class="btn btn-success">View Recipe</a>
+                         <a href="{{ url_for('view_recipe_category', selected_category='Bake') }}" class="btn btn-success">View Recipes</a> 
                     </div>
                 </div>
             </div>
@@ -53,8 +53,3 @@
     </div>
         
 {% endblock %}
-        
- 
-
-
-

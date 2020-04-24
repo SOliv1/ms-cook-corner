@@ -15,8 +15,8 @@
                 <div class="container">
                     <div class="carousel-caption text-left">
                         <h1>Cook Corner</h1>
-                    <p class ="carousel-lead">Create a recipe collection here </p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Create</a></p>
+                    <p class ="carousel-lead">View recipe collections here </p>
+                    <p><a class="btn btn-lg btn-primary" href="{{url_for('view_recipe_category', selected_category = selected_category)}}" role="button">View Recipe Collections</a></p>
                 </div>
             </div>
         </div>
@@ -25,9 +25,9 @@
             <img class="second-slide" src="static/img/linear.jpg" alt="Linea Collection">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>View recipes here </h1>
+                        <h1>View a recipe here </h1>
                         <p class ="carousel-lead">View your favourite recipes.  We have added some popular ones to get you started!</p>
-                        <a href="#" class="btn btn-success">View Recipe</a>
+                        <a class="btn btn-lg btn-primary" href="{{url_for('view_recipe', recipe_id = recipe._id)}}" role="button">View Recipe</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="carousel-caption text-right">
                         <h1>Edit and update recipes here</h1>
                         <p class ="carousel-lead">Once you have added your recipes you can edit, delete and update your recipes.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Edit and Update</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="edit_recipe/<recipe_id>" role="button">Edit and Update</a></p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                                 <h1>Recipe Manager</h1>
                                 <p class = "carousel-lead">Collect your favourite recipes and keep them here in your personal cookcorner.  
                                    Exchange recipe ideas with your friends and keen cooks.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#" role="button">Add a recipe</a></p>
+                                <p><a class="btn btn-lg btn-primary" href="{{ url_for('add_recipe') }}" role="button">Add a recipe</a></p>
                             </div>
                         </div>
                     </div>
