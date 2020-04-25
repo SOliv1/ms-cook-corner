@@ -14,28 +14,28 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 ### UX
 
 #### Ideal Customer:
-* wants to buy utensils and cookware.
+* wants to buy the finest and iconic utensils and cookware. Enjoys cooking, experimenting.
 * discover and share new ideas and recipes with keen cooks.
 
 #### Visitors to this website are looking for:
-* good quality bowls and utensils to use in the recipes which are also provided and can be       populated by the user.
+* good quality bowls and utensils to use in recipes in the simple to use database provided and   can be easily be used to **Create, add, edit, update and delete** by the user.
 * This website is a design for keen cooks to share recipes with others, by swapping ideas and     building up a collection.  
 * Visitors have access to all the cook-ware they need via a link on the website to the finest     British cookware *Mason Cash*  [Masoncash](https://www.masoncash.co.uk/products/mixing-         bowls.html) when only the best will do.
 
 #### This website is best for:
 
-1. A new customer who wants to discover more about the useful implements and products that can    be found on the website and buy directly with companies who speicalise in Mason Cash. This      is in addition to promoting *Mason Cash* the Company, without having to leave the site.
-1. As a new visitor to the website I want to be able to navigate easily around it quickly and      efficiently.
+1. A new customer who wants to discover more about the useful implements and products that can    be found on the website and buy directly with companies who speicalise in Mason Cash via        links. This is in addition to promoting *Mason Cash* the Company, without having to leave      the site.
+1. As a new visitor to the website I want to be able to navigate quickly and easkily.
 1. As an interested visitor / customer I want to follow the activities of this website on          social media.
-1. As an engaged visitor I want to return to the website and buy potentially purchase the          products and find out what is new.  A contact form and newsletter will be set up for this. 
-1. User stories adding to the website to encourage new and returning customers.
+1. As an engaged visitor I want to return to the website and potentially purchase the              products and find out what is new.  A contact form and newsletter will be set up for this. 
+1. Provide *User-stories adding to the website to encourage new and returning customers.
 
 
 #### User Stories:
-* As a customer, I want to be able to look up quickly the best products to use for my recipes,   so that I can order via the website from the company, and then get on to trying out the         recipes for my friends and family. Talk about inspiring recipes that feature and add my own     recipes to the mix.  
+* As a customer, I want to be able to quickly look up the best products to use for my recipes,   so that I can order via the website from the company. I want to experiement with the           recipes: edit / delete / and update with my own versions of a particular recipe to try out on   friends and family. Talk about inspiring recipes with other keen cooks, and add my own         recipes  to the mix.  
   *Happy Customer - I. Cook
 
-* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious as I am trying them and adding to the site as I discover new         dishes.
+* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious. I relish trying them out, discussing with other likeminded members   on the site. I love adding recipies to the site as I discover new dishes. A fullfilling         hobby!
   *Satisfied Customer - W. E. Bake
   
 * I love social media and am looking forward to sharing my recipes with other keen bloggers and   social media aficionados! 
@@ -44,14 +44,20 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 * What a pretty website! - so simple to use - I would like to be able to sort recipes and rate   them. Looking forward to receiving newsletters, trying all the mouthwatering dishes and         sharing with my friends. 
   *Can't wait  - B. Patience
   
+#### wireframes and Mockups:
+
+![GitHub Logo](/images/logo.png)
+[https://github.com](/wireframes/aboutipad.png)
+
+Format: ![Alt Text](url)
 
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 static/img/wirefme1.png 
 static/img/wirefme2.png
+http://github.com - automatic!
+[GitHub](http://github.com)
 
 ## Features
-
 The main feature I am showcasing in this website is the CRUD FUNCTIONALITY.
 
 ### Website
