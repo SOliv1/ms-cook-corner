@@ -1,4 +1,4 @@
-## Cook Corner
+# Cook Corner
 A dynamic website where keen cooks can post recipes and exchange recipe ideas with other cooks.  This website celebrates the tradition of great British craftsmanship and British cooking. 
 Mason Cash originated in a pottery operating at Church Gresley in the heart of the English ceramic industry in 1800.
 Two hundred years later, 
@@ -24,7 +24,7 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 
 #### This website is best for:
 
-1. A new customer who wants to discover more about the useful implements and products that can    be found on the website and buy directly with companies who speicalise in Mason Cash via        links. This is in addition to promoting *Mason Cash* the Company, without having to leave      the site.
+1. A new customer who wants to discover more about the useful implements and products that can be found on the website and buy directly with companies who speicalise in Mason Cash via links. This is in addition to promoting *Mason Cash* the Company, without having to leave the site.
 1. As a new visitor to the website I want to be able to navigate quickly and easkily.
 1. As an interested visitor / customer I want to follow the activities of this website on          social media.
 1. As an engaged visitor I want to return to the website and potentially purchase the              products and find out what is new.  A contact form and newsletter will be set up for this. 
@@ -32,16 +32,16 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 
 
 #### User Stories:
-* As a customer, I want to be able to quickly look up the best products to use for my recipes,   so that I can order via the website from the company. I want to experiement with the           recipes: edit / delete / and update with my own versions of a particular recipe to try out on   friends and family. Talk about inspiring recipes with other keen cooks, and add my own         recipes  to the mix.  
+* As a customer, I want to be able to quickly look up the best products to use for my recipes, so that I can order via the website from the company. I want to experiement with the recipes: edit / delete / and update with my own versions of a particular recipe. I want to try them out on friends and family. Talk about inspiring recipes with other keen cooks, and add my own recipes  to the mix.  
   *Happy Customer - I. Cook
 
-* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious. I relish trying them out, discussing with other likeminded members   on the site. I love adding recipies to the site as I discover new dishes. A fullfilling hobby!
+* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious. I relish trying them out and discussing with other likeminded members here. I love adding recipes to the website as I discover new dishes. A fullfilling hobby!
   *Satisfied Customer - W. E. Bake
   
-* I love social media and am looking forward to sharing my recipes with other keen bloggers and   social media aficionados! 
+* I love social media and am looking forward to sharing my recipes with other keen bloggers and social media aficionados! 
  *Love it - S. M. Butterfly
  
-* What a pretty website! - so simple to use - I would like to be able to sort recipes and rate   them. Looking forward to receiving newsletters, trying all the mouthwatering dishes and         sharing with my friends. 
+* What a pretty website! - so simple to use - I would like to be able to sort recipes and rate them. Looking forward to receiving   newsletters, trying all the mouthwatering dishes and sharing with my friends. 
   *Can't wait  - B. Patience
   
 ### wireframes and Mockups:
@@ -86,11 +86,11 @@ The recipe collection in the database should have the same attributes, at the ve
 * A name
 * A list of ingredients
 * A method/list of preparation instructions
-* Any other attributes necessary (the number of attributes does not need to be complex, since * * creating a new form element is just about copying and pasting others I create).
+* Any other attributes necessary (the number of attributes does not need to be complex, since * * creating a new form element is   just about copying and pasting others I create).
 * List of recipes page **(‘Read’)*
 * This page that displays the recipes in the database. (suggest this be on home page*).
 * Edit a recipe page *(‘Update’)*
-* A page to edit an existing recipe. This looks exactly the same as the add recipe page, except   this time, the form is pre-populated with values belonging to the recipe being edited.
+* A page to edit an existing recipe. This looks exactly the same as the add recipe page, except   this time, the form is pre-  	   populated with values belonging to the recipe being edited.
 
 Each recipe listed on the home page has an edit button that links to this page.
 Delete link for each recipe *(‘Delete’)*
@@ -160,30 +160,23 @@ I then style accordingly.   Unzip package with the *unzip gh-pages.zip* command.
 
 ## Existing Features - C.R.U.D. - allows users to add a recipe to store in database, by having them fill out the form.
 *CREATE - Add the recipe by following the instructions.  Whole sections can be inserted by following the recipe page setup.
-			    add recipe category, description, ingredinents, instructions.  MDB Atlas cleverly preserves the layout of the recipes 					that are being populated on the database.
+	  add recipe category, description, ingredinents, instructions.  MDB Atlas cleverly preserves the layout of the recipes     	    that are being populated on the database.
 
-READ -  	Read through and view all the recipes as a collection or view each recipe individually by clicking buttons. 
+READ -    Read through and view all the recipes as a collection or view each recipe individually by clicking buttons. 
 
 EDIT &amp;
-UPDATE -  Click the button to edit the page and follow the instructions there.  Then click the UPDATE button 															to save changes.  Then return to Home page to add another recipe by clicking the CREATE BUTTON again.
+UPDATE -  Click the button to edit the page and follow the instructions there.  Then click the UPDATE button 															to save changes.  Then return to 	   Home page to add another recipe by clicking the CREATE BUTTON again.
 
-DELETE		Press the delete button to undo changes.  
+DELETE	  Press the delete button to undo changes.  
 					
 ## Features Left to Implement
-	1.	Search box to search recipes.
-	1.  Login form with password so users sign in securely using the password to access the 		 				database.	
-	1.  More links to other companies specialising in Mason Cash and other British products. 					Other specialised recipe sites 
-			appropriate to this website.
-	1.	Contact Form to sign up for newsletters.
-	
-	1.	A nice feature to be incorporated - be able to vote in different recipes and be more 					specific on recipe ingredients.
-
-
-# Flask Chat project in my Recipe application
-I originally cloned from my previous Flask Chat Project to build and create features in my new
-Milestone 3 project. This chat application was written in *Flask*.  The application was downloaded from the libruaries using the pip3 install Flask from flask command.
-The purpose of this project is to take data from a URL and store the information in a list, in this case sharing recipe ideas with authorised users who have signed up 
-for this service.
+			* Search box to search recipes.
+			* Login form with password so users sign in securely using the password to access the database.	
+			* More links to other companies specialising in Mason Cash and other British products. 						* Links to other specialised recipe sites appropriate to this website.
+			* Contact Form to sign up for newsletters.
+			* Another nice feature to be incorporated is to be able to vote in different recipes and be more 				  specific on recipe ingredients.
+			* Social media and blogs
+			* Chat page / Forum
 
 ## Technologies - a sample code to use in future:
 
@@ -200,7 +193,7 @@ for this service.
 
 ### Libruaries / requirements
 
-		* dnspython==1.16.0
+		*dnspython==1.16.0
 		*Flask==1.1.1
 		*itsdangerous==1.1.0
 		*pymongo==3.10.1
@@ -262,7 +255,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 Slack community - *various borrowed code snippets* See below credits. I often change them
                      when some of the code did not work for me.  However it did
-                     lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and checking at the bottom of my jinga codes for the errors.
+                     lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and 			     checking at the bottom of my jinga codes for the errors.
                      This experience gave me more confidence to debug code.
 
 
@@ -311,7 +304,6 @@ Layout ideas / organisation for my website e.g. config.py, pages for my template
 ####README.md inspiration Anna Greaves - Family Portrait.
 
 
-
 #### The text for section "About" *history* was copied from the Wikipedia article https://en.wikipedia.org/wiki/Mason_Cash
 
 #### Media
@@ -328,4 +320,6 @@ I received inspiration for this project from:-
 - Slack community - *various borrowed code snippets* but then I changed them
                      when some of the code did not work for me.  However it did
                      lead me on to thinking again about seeing a line of your code highlighted in an error that i had been    											 seeing, and checking at the bottom of my jinga codes for the errors.
-                     It also gave me more confidence to debug code.
+                     It also gave me more confidence to debug code.  
+		     
+Overall I feel very satisfied with my project and enjoyed creating it despite some issues on the way.  It was certainly challenging but I think the effort was worth it.
