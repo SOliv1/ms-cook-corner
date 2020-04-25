@@ -35,7 +35,7 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 * As a customer, I want to be able to quickly look up the best products to use for my recipes,   so that I can order via the website from the company. I want to experiement with the           recipes: edit / delete / and update with my own versions of a particular recipe to try out on   friends and family. Talk about inspiring recipes with other keen cooks, and add my own         recipes  to the mix.  
   *Happy Customer - I. Cook
 
-* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious. I relish trying them out, discussing with other likeminded members   on the site. I love adding recipies to the site as I discover new dishes. A fullfilling         hobby!
+* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious. I relish trying them out, discussing with other likeminded members   on the site. I love adding recipies to the site as I discover new dishes. A fullfilling hobby!
   *Satisfied Customer - W. E. Bake
   
 * I love social media and am looking forward to sharing my recipes with other keen bloggers and   social media aficionados! 
@@ -44,16 +44,30 @@ high quality terracotta and porous dishes which absorb moisture from the dough i
 * What a pretty website! - so simple to use - I would like to be able to sort recipes and rate   them. Looking forward to receiving newsletters, trying all the mouthwatering dishes and         sharing with my friends. 
   *Can't wait  - B. Patience
   
-#### wireframes and Mockups:
+### wireframes and Mockups:
 
-![GitHub Logo](/images/logo.png)
-[https://github.com](/wireframes/aboutipad.png)
+#### Please follow paths to wireframes and mockups:
 
-Format: ![Alt Text](url)
+	1.	Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/wireframe(1).jpg)
+			[https://github.com](https://ms-cook-corner/wireframes/wireframe(1).jpg)
+
+	1.	![GitHub Logo](wireframes/aboutipad.png)
+			[https://github.com](https://ms-cook-corner/wireframes/aboutipad.png)
+			Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutipad.png)
+	
+	1. Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutmobile.png)
+			![GitHub Logo](wireframes/aboutmoble.png)
+			
+	1.	[https://github.com](https//ms-cook-corner/wireframes/laptopimage%20(2).jpg)
+			![GitHub Logo](wireframes/laptopimage%20(2).jpg)
+			
+	1.	[https://github.com](https//ms-cook-corner/wireframes/recipe-mob.jpg)
+			![GitHub Logo](wireframes/recipe-mob.jpg)
+			
+	1.	[https://github.com](https//ms-cook-corner/wireframes/responsive.jpg)
+			![GitHub Logo](wireframes/responsive.jpg)
 
 
-static/img/wirefme1.png 
-static/img/wirefme2.png
 http://github.com - automatic!
 [GitHub](http://github.com)
 
@@ -87,7 +101,7 @@ Each recipe list (on the home page) has a delete button that links to the *delet
 #### Deployment to Heroku
 Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previous commands.
 
-*Here we go:
+#### First we:
  npm install -g heroku
 
 Then, to login, use the command:
@@ -144,15 +158,26 @@ I download the theme by copying the link then go to terminal and mkdir, then cd 
 I then style accordingly.   Unzip package with the *unzip gh-pages.zip* command.
 
 
-## Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+## Existing Features - C.R.U.D. - allows users to add a recipe to store in database, by having them fill out the form.
+*CREATE - Add the recipe by following the instructions.  Whole sections can be inserted by following the recipe page setup.
+			    add recipe category, description, ingredinents, instructions.  MDB Atlas cleverly preserves the layout of the recipes 					that are being populated on the database.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+READ -  	Read through and view all the recipes as a collection or view each recipe individually by clicking buttons. 
 
+EDIT &amp;
+UPDATE -  Click the button to edit the page and follow the instructions there.  Then click the UPDATE button 															to save changes.  Then return to Home page to add another recipe by clicking the CREATE BUTTON again.
+
+DELETE		Press the delete button to undo changes.  
+					
 ## Features Left to Implement
-Login form with password so users sign in securely using the password to access the database.
+	1.	Search box to search recipes.
+	1.  Login form with password so users sign in securely using the password to access the 		 				database.	
+	1.  More links to other companies specialising in Mason Cash and other British products. 					Other specialised recipe sites 
+			appropriate to this website.
+	1.	Contact Form to sign up for newsletters.
+	
+	1.	A nice feature to be incorporated - be able to vote in different recipes and be more 					specific on recipe ingredients.
+
 
 # Flask Chat project in my Recipe application
 I originally cloned from my previous Flask Chat Project to build and create features in my new
@@ -160,23 +185,30 @@ Milestone 3 project. This chat application was written in *Flask*.  The applicat
 The purpose of this project is to take data from a URL and store the information in a list, in this case sharing recipe ideas with authorised users who have signed up 
 for this service.
 
+## Technologies - a sample code to use in future:
 
+>  *login snippet* - copied from https://github.com/joanms/recipe->database/blob/master/app.py:
+>	if login_user:
+            ### If the username is in the database, hash the password entered in the form and 								compare it with the hashed password in the database for that user
+            		if bcrypt.hashpw(request.form['password'].encode('utf-8'), 			 			>login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+        		### The user sees this message if the username and/or password are invalid
+        				flash('Invalid username/password combination.')
+    							return render_template('login.html')
 
-Another feature idea
-## Technologies Used
 
 ### Libruaries / requirements
 
--dnspython==1.16.0
--Flask==1.1.1
--itsdangerous==1.1.0
--pymongo==3.10.1
--Werkzeug==1.0.0
--bison==0.1.2
--click==7.1.1
--Flask==1.1.1
--Flask-PyMongo==2.3.0
-
+		* dnspython==1.16.0
+		*Flask==1.1.1
+		*itsdangerous==1.1.0
+		*pymongo==3.10.1
+		*Werkzeug==1.0.0
+		*bison==0.1.2
+		*click==7.1.1
+		*Flask==1.1.1
+		*Flask-PyMongo==2.3.0
 
 ### For CRUD FUNCTIONALITY 
 
@@ -190,26 +222,18 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 #### JQuery
 The project uses JQuery to simplify DOM manipulation.
+
 #### Testing
 127.0.0.1 - - [20/Mar/2020 12:05:52] "GET /get_categories HTTP/1.1" 500 -
 Encountered:
 505 error indicates a temporary problem, and sometimes that problem is very temporary. A site might be getting overwhelmed with traffic, for example. So, refreshing the page is always worth a shot. Most browsers use the F5 key to refresh, and also provide a Refresh button somewhere on the address bar. It doesn’t fix the problem very often, but it takes just a second to try.
 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-
 ### Deployment
 #### Cloning a repository to GitHub Desktop
-I cloned one of my Flask mini projects to deploy locally on GitHub desktop. 
+I clone one of my Flask mini projects to deploy locally on GitHub desktop. 
 On GitHub, I navigate to the main page of the repository.
 Under my repository name, I click to clone my repository in Desktop. I follow the prompts in GitHub Desktop to complete the clone.  
-
-
 
 (e.g. GitHub Pages or Heroku).
 When trying to deploy my project to Heroku I hit a bug *- AttributeError
@@ -250,18 +274,8 @@ Slack community - *various borrowed code snippets* See below credits. I often ch
 #### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
 *Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
 Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
-#### Login - copied code from:
-- https://www.youtube.com/watch?v=vVx1737auSE
 
-- and *login snippet* - copied from https://github.com/joanms/recipe-database/blob/master/app.py:
-if login_user:
-            ### If the username is in the database, hash the password entered in the form and compare it with the hashed password in the database for that user
-            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-                session['username'] = request.form['username']
-                return redirect(url_for('index'))
-        ### The user sees this message if the username and/or password are invalid
-        flash('Invalid username/password combination.')
-    return render_template('login.html')
+
     and also 
 - *code also taken from* 
  https://github.com/PrettyPrinted/mongodb-user-login/blob/master/login_example.py
@@ -284,8 +298,6 @@ Editing category
 Updating category
 Deleting category
 
-A nice feature to be incorporated - be able to vote in different recipes and be more specific on recipe ingredients.
-
 
 #### Excellent project guide by Code Institute Mentor Brian Machira - thank you for his guidance and support.
 https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
@@ -293,9 +305,12 @@ https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
 #### Further Inspiration and ideas from following CI Student website:
 https://github.com/3PU/cook-book-milestone-project
 
-####Family Hub more ideas from this website created by Anna Greaves
+#### Family Hub - more ideas from this website created by Anna Greaves
 https://github.com/AJGreaves/familyhub/blob/master/config.py    
-Layout ideas / organisation for my website e.g. config.py, pages for my templates
+Layout ideas / organisation for my website e.g. config.py, pages for my templates.
+####README.md inspiration Anna Greaves - Family Portrait.
+
+
 
 #### The text for section "About" *history* was copied from the Wikipedia article https://en.wikipedia.org/wiki/Mason_Cash
 
@@ -307,10 +322,10 @@ e.g. media - https://www.masoncash.co.uk/media/bannerslider/a/m/amazon-2.jpg
 I received inspiration for this project from:- 
 
 - "*Mason Cash - Buy British*
-- Brian Machira - *CI Mentor*
-- Anthony Herbet-*Pretty Printed, Flask Extensions videos'
+-   Brian Machira - *CI Mentor*
+-   Anthony Herbet-*Pretty Printed, Flask Extensions videos'
 
 - Slack community - *various borrowed code snippets* but then I changed them
                      when some of the code did not work for me.  However it did
-                     lead me on to thinking again about seeing a line of your code highlighted in an error that i had been seeing, and checking at the bottom of my jinga codes for the errors.
+                     lead me on to thinking again about seeing a line of your code highlighted in an error that i had been    											 seeing, and checking at the bottom of my jinga codes for the errors.
                      It also gave me more confidence to debug code.
