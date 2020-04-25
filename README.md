@@ -1,24 +1,51 @@
 ## Cook Corner
-A dynamic website where interested cooks can post recipes and exchange recipe ideas with other cooks.  This website celebrates the tradition of great British craftsmanship. 
+A dynamic website where keen cooks can post recipes and exchange recipe ideas with other cooks.  This website celebrates the tradition of great British craftsmanship and British cooking. 
 Mason Cash originated in a pottery operating at Church Gresley in the heart of the English ceramic industry in 1800.
-Two hundred years later mixing practicality with elegance is the mantra for this iconic brand.
+Two hundred years later, 
+>mixing practicality with elegance
+>is the mantra for this distinctive brand.  
+The website is a B2C emotion driven and appeals to the benefits of users by encouraging interaction and engagement through the exchange and addition of favourite recipes on the databse.  This website ideally is a logon and password encrypted one. However, that is left for me to implement later. My focus is on the CRUD functionality.
 Bakeware, untensils and beautiful mixing bowls in various colours are available and ready to use by those who appreciate baking and cooking only with the finest!
 
-The famous mixing bowls are made from high quality, chip-resistant earthenware making them heavy enough to stand when mixing, yet light enough to hold comfortably in one arm.
+This website features the iconic mixing bowls which are made from high quality, chip-resistant earthenware making them heavy enough to stand when mixing, yet light enough to hold comfortably in one arm.
 The Oven and Bakeware comes in a range of sturdy and durable materials, from cane design bowls, gleaming white linea ovenware, oval and round to rectangular dishes; and finally the warmth of 
-high quality terracotta and porous dishes which absorb moisture from the dough in order to produce a perfect crust every time.
-
-The utensils has been designed for multi-functionality and comfort. Each piece is designed for multi-purpose functionality.  
-There are two innovative ranges in beechwood and stainless Steel range which ensures that all cooks needs are met.  The recipes are mainly British and in the 
-spirit of well loved recipes old and new, tried and true; this website has been developed.
+high quality terracotta and porous dishes which absorb moisture from the dough in order to produce a perfect crust every time.  The utensils has been designed for multi-functionality and comfort. Each piece is designed for multi-purpose functionality.  There are two innovative ranges in beechwood and stainless Steel range which ensures that all cooks needs are met.  The recipes are mainly British and in the spirit of well loved recipes old and new, tried and true; this website has been developed.
 
 ### UX
-This website is designed for keen cooks to share recipes with others, by swapping ideas and building up a collection.  They have access to all the cook-ware they need
-via a link on the website to the finest British cookware *Mason Cash* when only the best will do.
-I want to find out more about the useful implements and products that can be found on the website and buy directly with companies who speicalize in Mason Cash.This is in addition to promoting *Mason Cash* the Company, without having to leave the site.
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 
-As a user type, I want to perform an action, so that I can achieve a goal.
+#### Ideal Customer:
+* wants to buy utensils and cookware.
+* discover and share new ideas and recipes with keen cooks.
+
+#### Visitors to this website are looking for:
+* good quality bowls and utensils to use in the recipes which are also provided and can be       populated by the user.
+* This website is a design for keen cooks to share recipes with others, by swapping ideas and     building up a collection.  
+* Visitors have access to all the cook-ware they need via a link on the website to the finest     British cookware *Mason Cash*  [Masoncash](https://www.masoncash.co.uk/products/mixing-         bowls.html) when only the best will do.
+
+#### This website is best for:
+
+1. A new customer who wants to discover more about the useful implements and products that can    be found on the website and buy directly with companies who speicalise in Mason Cash. This      is in addition to promoting *Mason Cash* the Company, without having to leave the site.
+1. As a new visitor to the website I want to be able to navigate easily around it quickly and      efficiently.
+1. As an interested visitor / customer I want to follow the activities of this website on          social media.
+1. As an engaged visitor I want to return to the website and buy potentially purchase the          products and find out what is new.  A contact form and newsletter will be set up for this. 
+1. User stories adding to the website to encourage new and returning customers.
+
+
+#### User Stories:
+* As a customer, I want to be able to look up quickly the best products to use for my recipes,   so that I can order via the website from the company, and then get on to trying out the         recipes for my friends and family. Talk about inspiring recipes that feature and add my own     recipes to the mix.  
+  *Happy Customer - I. Cook
+
+* I love the look and feel of the website. It is very appealing and harmoniously set up.  I can   find everything from the **Mason and Cash Company** here and I adore all things **British**.   The recipes are delicious as I am trying them and adding to the site as I discover new         dishes.
+  *Satisfied Customer - W. E. Bake
+  
+* I love social media and am looking forward to sharing my recipes with other keen bloggers and   social media aficionados! 
+ *Love it - S. M. Butterfly
+ 
+* What a pretty website! - so simple to use - I would like to be able to sort recipes and rate   them. Looking forward to receiving newsletters, trying all the mouthwatering dishes and         sharing with my friends. 
+  *Can't wait  - B. Patience
+  
+
+
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 static/img/wirefme1.png 
 static/img/wirefme2.png
@@ -36,18 +63,18 @@ The main feature I am showcasing in this website is the CRUD FUNCTIONALITY.
 This is how users add recipes to the database. It contains a simple HTML form to collect the recipe attributes we intend to store. 
 The recipe collection in the database should have the same attributes, at the very least:
 
-- A name
-- A list of ingredients
-- A method/list of preparation instructions
-- Any other attributes necessary (the number of attributes does not need to be complex, since creating a new form element is just about copying and pasting others I create).
-- List of recipes page **(‘Read’)*
-- This page that displays the recipes in the database. (suggest this be on home page*).
-- Edit a recipe page *(‘Update’)*
-- A page to edit an existing recipe. This looks exactly the same as the add recipe page, except this time, the form is pre-populated with values belonging to the recipe being edited.
+* A name
+* A list of ingredients
+* A method/list of preparation instructions
+* Any other attributes necessary (the number of attributes does not need to be complex, since * * creating a new form element is just about copying and pasting others I create).
+* List of recipes page **(‘Read’)*
+* This page that displays the recipes in the database. (suggest this be on home page*).
+* Edit a recipe page *(‘Update’)*
+* A page to edit an existing recipe. This looks exactly the same as the add recipe page, except   this time, the form is pre-populated with values belonging to the recipe being edited.
 
-Each recipe listed on the home page should have an edit button that links to this page.
+Each recipe listed on the home page has an edit button that links to this page.
 Delete link for each recipe *(‘Delete’)*
-Each recipe listed (on the home page) has a delete button that links to the *delete view*.
+Each recipe list (on the home page) has a delete button that links to the *delete view*.
 
 
 
