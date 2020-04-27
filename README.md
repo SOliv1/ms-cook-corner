@@ -208,9 +208,7 @@ DELETE	  Press the delete button to undo changes.
         		### The user sees this message if the username and/or password are invalid
         				flash('Invalid username/password combination.')
     							return render_template('login.html')
-
-
-### Libraries / requirements:
+#### Libraries / requirements:
 
 		*dnspython==1.16.0
 		*Flask==1.1.1
@@ -222,8 +220,21 @@ DELETE	  Press the delete button to undo changes.
 		*Flask==1.1.1
 		*Flask-PyMongo==2.3.0
 
-### For CRUD FUNCTIONALITY 
 
+#### Links to libraries
+	
+*	https://pypi.org/project/Flask-Bootstrap4/
+
+*	https://www.fullstackpython.com/flask.html
+
+*	https://flask.palletsprojects.com/en/1.1.x/
+
+*	https://www.mongodb.com/cloud/atlas
+
+*	https://www.python.org/
+
+
+### For CRUD FUNCTIONALITY 
 Install flask: pip3 install flask
 Create a python file: app.py
 Install pynthon: pip3 dnspython
@@ -242,7 +253,6 @@ Encountered:
 * 505 error indicates a temporary problem, and sometimes that problem is very temporary. A site might be getting overwhelmed with traffic, for example. So, refreshing the page is always worth a shot. Most browsers use the F5 key to refresh, and also provide a Refresh button somewhere on the address bar. It doesn’t fix the problem very often, but it takes just a second to try.
 * Firefox / Chrome / Edge / - All appear to be working as so are the links.
 
-## Deployment
 #### Cloning a repository to GitHub Desktop
 I clone one of my Flask mini projects to deploy locally on GitHub desktop. 
 On GitHub, I navigate to the main page of the repository.
