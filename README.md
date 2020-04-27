@@ -9,12 +9,10 @@
 * Website & Database
 * Accessibility
 * Features
-* Testing
 * Deployment
+* Testing
 * Credits
 * Conclusion
-
-
 
 ###  LIVE DEMO CAN BE FOUND AT HEROKU: https://cook-corner-ms.herokuapp.com/
 
@@ -60,29 +58,13 @@ The Oven and Bakeware comes in a range of sturdy and durable materials, from can
 * What a pretty website! - so simple to use - I would like to be able to sort recipes and rate them. Looking forward to receiving   newsletters, trying all the mouthwatering dishes and sharing with my friends. 
   *Can't wait  - B. Patience
   
-### wireframes and Mockups:
+## CookCorner = wireframes and Mockups:
 
-##### Please follow paths to wireframes and mockups:
+*Please follow the link below to view wireframes and Mockups*:
 
-	1.	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/wireframe(1).jpg)
-		
-	
-	1.	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutipad.png)
-		
-	1. 	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutmobile.png)
-				
-	1.	![Cook_corner_wirefrmes](https//ms-cook-corner/wireframes/laptopimage%20(2).jpg)
-			
-			
-	1.	![Cook_corner](https//ms-cook-corner/wireframes/recipe-mob.jpg)
-			![GitHub Logo](wireframes/recipe-mob.jpg)
-			
-	1.	![Cook_corner](https//ms-cook-corner/wireframes/responsive.jpg)
-			
+[cookCorner](http://github.com/SOliv1/ms-cook-corner/tree/master/wireframes)
 
-http://github.com - automatic!
-[GitHub](http://github.com)
-
+			
 ## Website & Database
 I chose Mongo DBAtlas for my project which was recommended by C.I. in the course.
 My website Database consists of *Pages (to meet CRUD requirement - Create Read Update Delete) in a database called MONGO DB Atlas* It is a highly scalable server which stores data in a non-relational format.
@@ -110,6 +92,24 @@ Each recipe listed on the home page has an edit button that links to this page.
 Delete link for each recipe *(‘Delete’)*
 Each recipe list (on the home page) has a delete button that links to the *delete view*.
 
+## Deployment
+
+#### Deployment to Github
+* make sure the branch or folder as a publishing source exists in the repository. Example, before  publishing project site from the /docs folder on the master branch of that repository, 
+  collaborator must create a /docs folder on the *master* branch of that repository.
+* On GitHub, navigate to site's repository.
+* Under repository name, click  Settings.
+* Under "GitHub Pages", use Source drop-down menu and select a publishing source.
+* More information found on Github:
+  https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-    source-for-your-github-pages-site
+
+
+#### Cloning a repository to GitHub Desktop
+I clone one of my Flask mini projects to deploy locally on GitHub desktop. 
+On GitHub, I navigate to the main page of the repository.
+Under my repository name, I click to clone my repository in Desktop. I follow the prompts in GitHub Desktop to complete the clone.  
+
+
 #### Deployment to Heroku
 Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previous commands.
 
@@ -121,6 +121,14 @@ heroku login -i *
 
 #### Clone the repository
 Use Git to clone ms-cook-corner's source code to your local machine.
+(e.g. GitHub Pages or Heroku).
+When trying to deploy my project to Heroku I hit a bug *- AttributeError
+AttributeError: 'NoneType' object has no attribute 'categories'*
+In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+
+To resolve this I ...
+Different values for environment variables (Heroku Config Vars)?
+Different configuration files?
 
 $ heroku git:clone 
 Deploy changes
@@ -178,6 +186,7 @@ UPDATE -  Click the button to edit the page and follow the instructions there.  
 
 DELETE	  Press the delete button to undo changes.  
 					
+
 ### Features Left to Implement:
 			* Search box to search recipes.
 			* Sort code to sort through recipes and categories
@@ -188,7 +197,7 @@ DELETE	  Press the delete button to undo changes.
 			* Social media and blogs
 			* Chat page / Forum
 
-## Technologies - a sample code to use in future:
+#### Technologies - a sample code to use in future:
 
 >  *login snippet* - copied from https://github.com/joanms/recipe->database/blob/master/app.py:
 >	if login_user:
