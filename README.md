@@ -18,8 +18,7 @@
 
 ###  LIVE DEMO CAN BE FOUND AT HEROKU: https://cook-corner-ms.herokuapp.com/
 
-### README More information LINK HERE:
-	    https://validator.w3.org/nu/#l118c6
+### README  Further information and alternative view via LINK HERE
   README.md https://1drv.ms/w/s!AgMQTPoqZgRAjBzcw6gYVD7gImdt?e=5XbCvm
   
 ## UX Introduction 
@@ -65,25 +64,21 @@ The Oven and Bakeware comes in a range of sturdy and durable materials, from can
 
 ##### Please follow paths to wireframes and mockups:
 
-	1.	Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/wireframe(1).jpg)
-			[https://github.com](https://ms-cook-corner/wireframes/wireframe(1).jpg)
-
-	1.	![GitHub Logo](wireframes/aboutipad.png)
-			[https://github.com](https://ms-cook-corner/wireframes/aboutipad.png)
-			Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutipad.png)
+	1.	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/wireframe(1).jpg)
+		
 	
-	1. Format: ![Alt Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutmobile.png)
-			![GitHub Logo](wireframes/aboutmoble.png)
+	1.	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutipad.png)
+		
+	1. 	![Cook_corner_wire_frmes](https://ms-cook-corner/wireframes/aboutmobile.png)
+				
+	1.	![Cook_corner_wirefrmes](https//ms-cook-corner/wireframes/laptopimage%20(2).jpg)
 			
-	1.	[https://github.com](https//ms-cook-corner/wireframes/laptopimage%20(2).jpg)
-			![GitHub Logo](wireframes/laptopimage%20(2).jpg)
 			
-	1.	[https://github.com](https//ms-cook-corner/wireframes/recipe-mob.jpg)
+	1.	![Cook_corner](https//ms-cook-corner/wireframes/recipe-mob.jpg)
 			![GitHub Logo](wireframes/recipe-mob.jpg)
 			
-	1.	[https://github.com](https//ms-cook-corner/wireframes/responsive.jpg)
-			![GitHub Logo](wireframes/responsive.jpg)
-
+	1.	![Cook_corner](https//ms-cook-corner/wireframes/responsive.jpg)
+			
 
 http://github.com - automatic!
 [GitHub](http://github.com)
