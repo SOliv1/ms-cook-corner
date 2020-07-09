@@ -185,8 +185,21 @@ EDIT &
 UPDATE -  Click the button to edit the page and follow the instructions there.  Then click the UPDATE button 															to save changes.  Then return to 	   Home page to add another recipe by clicking the CREATE BUTTON again.
 
 DELETE	  Press the delete button to undo changes.  
-					
 
+
+## Existing Features  - An Example
+### Feature 1 - allows users X to achieve Y, by having them fill out Z
+Below is an example of a user friendly feature for user(X) to achieve(Y)a recipe collection by filling out their favourite recipe/s and sharing on a user friendly website(Z). 
+... Please see modified code example below:- 
+_Further Inspiration from following CI Student website:_
+https://github.com/3PU/cook-book-milestone-project
+*code snippets - *modified code in my project app.py - copied from **cook book** (app.py).*  
+_*Please note this is also attributed in the credits section.*_
+
+I want to achieve a seemless userfriendly experience whereby a user can easily copy and paste recipes with a minimum of fuss 
+and without having to style the recipes in order to save time.  *Editing and updating*  can be done if and when needed in the users own time.
+I tried using semi colons and commas to achieve the seemless new line effects in my insert_recipe function, but these did not so work well for me so I copied the idea of newline "(/n)" which suits my purposes to easily *insert recipes* and I think to the satisfaction of the end-user.    
+					
 ### Features Left to Implement:
 			* Search box to search recipes.
 			* Sort code to sort through recipes and categories
@@ -323,8 +336,47 @@ Deleting category
 #### Excellent project guide by Code Institute Mentor Brian Machira - thank you for his guidance and support.
 https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
 
-#### Further Inspiration and ideas from following CI Student website:
-https://github.com/3PU/cook-book-milestone-project
+# Credits
+### Content
+#### Cook Corner - Home page image - curtesy of Mason Cash:- 
+ https://www.masoncash.co.uk/index.php/prodsecucts/mixing-bowls/colour-mix-mixing-bowls.html
+
+#### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
+*Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
+Second image curtesy of *Dunelm*:- 
+https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
+#### Login - copied code from:
+- https://www.youtube.com/watch?v=vVx1737auSE
+
+#### Further Inspiration and insert recipe idea from following CI Student website:
+https://github.com/3PU/cook-book-milestone-project - see modified code below.
+*code snippets - *modified code in my project app.py - copied from **cook book** (app.py).*  For the new lines "(/n)" 
+I want to achieve a seemless userfriendly experience whereby the user could easily copy and paste recipes with a minimum of fuss 
+and without having to style the recipes to save time.  *Editing and updating*  can be done if and when needed in the users own time.
+I tried using semi colons and commas but these did not work well for me so I copied the idea of newline "(/n)" which works to best for me 
+and I think the satisfaction of the user.    
+to:-I did try to improve the following version which works but not properly configured for my project. I replace ("/n") with (",") but this did not look so nice and had to be adjusted / edited by the user so I decided to copy the ("n") which works nicely(this was copied and modified from Cook-book insert_reciepe code - see above project link)
+                    @app.route("/insert_recipe", methods=["POST"])
+                    def insert_recipe():
+                        recipes = mongo.db.recipes
+                        form_data = request.form.to_dict()
+                        print(form_data['ingredients'])
+                        ingredients_list = form_data["ingredients"].split(",") 		**(later changed back ("/n"))**
+                        instructions_list = form_data["instructions"].split(",")
+
+                        the_recipe = recipes.insert_one(
+                            {
+                            "category_name": request_form["category_name"],
+                            "recipe_name": request_form["recipe_name"],
+                            "image_link": request_form["image_link"],
+                            "description": request_form["description"],
+                            "ingredients": ingredients_list,
+                            "instructions": instructions_list
+                            }
+                        )
+
+                        return redirect(url_for("view_recipe",
+                                                recipe_id=the_recipe.inserted_id))
 
 #### Family Hub - more ideas from this website created by Anna Greaves
 https://github.com/AJGreaves/familyhub/blob/master/config.py    
@@ -345,10 +397,10 @@ I received inspiration for this project from:-
 -   Brian Machira - *CI Mentor*
 -   Anthony Herbet-*Pretty Printed, Flask Extensions videos'
 
-- Slack community - *various borrowed code snippets* but then I changed them
-                     when some of the code did not work for me.  However it did
-                     lead me on to thinking again about seeing a line of your code highlighted in an error that i had been    			     seeing, and checking at the bottom of my jinga codes for the errors.
-                     It also gave me more confidence to debug code.  
+- Slack community - *various borrowed code snippets* which I then modify to suit my purposes, although
+                     some of the code did not work for me I had to rethink how to improve this.  However it did
+                     lead me on to thinking again about seeing a line of code highlighted in an error that i had been    			     		      seeing, and checking at the bottom of my jinja codes for the errors.
+                     It also gives me extra confidence to debug code.  
 		     
 ## Conclusion	     
-Overall I feel very satisfied with my project and enjoy creating it despite some issues and challenges along the way.  It was certainly challenging but I think the effort was worth it.
+Overall I feel satisfied with my project and enjoyed creating it despite some issues along the way.  It was certainly challenging but I think the effort was worth it.
