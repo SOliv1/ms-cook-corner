@@ -58,7 +58,7 @@ The Oven and Bakeware comes in a range of sturdy and durable materials, from can
 * What a pretty website! - so simple to use - I would like to be able to sort recipes and rate them. Looking forward to receiving   newsletters, trying all the mouthwatering dishes and sharing with my friends. 
   *Can't wait  - B. Patience
   
-## CookCorner = wireframes and Mockups:
+## CookCorner = Wireframes and Mockups:
 
 *Please follow the link below to view wireframes and Mockups*:
 
@@ -222,8 +222,22 @@ EDIT &
 UPDATE -  Click the button to edit the page and follow the instructions there.  Then click the UPDATE button 															to save changes.  Then return to 	   Home page to add another recipe by clicking the CREATE BUTTON again.
 
 DELETE	  Press the delete button to undo changes.  
-					
 
+
+## Existing Features  - An Example
+### Feature 1 - allows users X to achieve Y, by having them fill out Z
+Below is an example of a user friendly feature for user(X) to achieve(Y)a recipe collection by filling out their favourite recipe/s and sharing on a user friendly website(Z). 
+*Please see modified code example below under the heading:-*
+at **Further Inspiration and insert recipe idea from following CI Student website**
+_Further Inspiration from following CI Student website:_
+https://github.com/3PU/cook-book-milestone-project
+*code snippets - *modified code in my project app.py - copied from **cook book** (app.py).*  
+_*Please note this is also attributed in the credits section.*_
+
+I want to achieve a seemless userfriendly experience whereby a user can easily copy and paste recipes with a minimum of fuss 
+and without having to style the recipes in order to save time.  *Editing and updating*  can be done if and when needed in the users own time.
+I tried using semi colons and commas to achieve the seemless new line effects in my insert_recipe function, but these did not work well for me so I copied the idea of newline "(/n)" which suits my purposes to easily *insert recipes* and I think to the satisfaction of the end-user.    
+					
 ### Features Left to Implement:
 			* Search box to search recipes.
 			* Sort code to sort through recipes and categories
@@ -323,20 +337,6 @@ Slack community - *various borrowed code snippets* See below credits. I often ch
                      lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and checking at the bottom of my jinga codes for these errors.
                      This experience gives me more confidence to debug code.
 
-
-## Credits
-
-#### Cook Corner - Home page image - curtesy of Mason Cash:- 
- https://www.masoncash.co.uk/index.php/prodsecucts/mixing-bowls/colour-mix-mixing-bowls.html
-
-#### About Page - all image credits curtesy of *Mason Cash*.  About main section copied from Wikipedia; https://en.wikipedia.org/wiki/Mason_Cash
-*Featurette images and accompanying product information on mixing bowls credited to *Mason Cash* - https://www.masoncash.co.uk/products/mixing-bowls.html
-Second image curtesy of *Dunelm*:- https://i1.adis.ws/i/dm/30563229.jpg?$standardplayerzoom$&img404=noimagedefault
-
-    and also 
-- *code also taken from* 
- https://github.com/PrettyPrinted/mongodb-user-login/blob/master/login_example.py
-
  #### Dashboard - based on:- 
  https://github.com/PrettyPrinted/building_user_login_system/blob/master/start/templates/dashboard.html
 
@@ -360,7 +360,7 @@ Deleting category
 https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
 
 #### Further Inspiration and ideas from following CI Student website:
-insert_recipe code copied and odified from this code below:-
+insert_recipe code copied and modified from this code below:-
 
 '''
     @app.route("/insert_recipe", methods=["POST"])
@@ -389,10 +389,6 @@ insert_recipe code copied and odified from this code below:-
 `https://github.com/3PU/cook-book-milestone-project`
 
 
-#### Family Hub - more ideas from this website created by Anna Greaves
-https://github.com/AJGreaves/familyhub/blob/master/config.py    
-Layout ideas / organisation for my website e.g. config.py, pages for my templates.
-####README.md inspiration Anna Greaves - Family Portrait.
 
 
 #### The text for section "About" *history* was copied from the Wikipedia article https://en.wikipedia.org/wiki/Mason_Cash
@@ -408,10 +404,18 @@ I received inspiration for this project from:-
 -   Brian Machira - *CI Mentor*
 -   Anthony Herbet-*Pretty Printed, Flask Extensions videos'
 
-- Slack community - *various borrowed code snippets* but then I changed them
-                     when some of the code did not work for me.  However it did
-                     lead me on to thinking again about seeing a line of your code highlighted in an error that i had been    			     seeing, and checking at the bottom of my jinga codes for the errors.
-                     It also gave me more confidence to debug code.  
+- Slack community - *various borrowed code snippets* which I then modify to suit my purposes, although
+                     some of the code did not work for me I had to rethink how to improve this.  However it did
+                     lead me on to thinking again about seeing a line of code highlighted in an error that i had been    			     		      seeing, and checking at the bottom of my jinja codes for the errors.
+                     It also gives me extra confidence to debug code.  
+
+
+#### Family Hub - more ideas from this website created by Anna Greaves
+https://github.com/AJGreaves/familyhub/blob/master/config.py    
+Layout ideas / organisation for my website e.g. config.py, pages for my templates.
+####README.md inspiration Anna Greaves - Family Portrait.
+```
+
 		     
 ## Conclusion	     
-Overall I feel very satisfied with my project and enjoy creating it despite some issues and challenges along the way.  It was certainly challenging but I think the effort was worth it.
+Overall I feel satisfied with my project and enjoyed creating it despite some issues along the way.  It was certainly challenging but I think the effort was worth it.
