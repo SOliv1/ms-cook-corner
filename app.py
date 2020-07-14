@@ -143,4 +143,4 @@ if __name__ == '__main__':
     app.secret_key = 'some_secret'
     app.run(host=os.environ.get('IP', "86."),
             port=int(os.environ.get('PORT', "8080")),
-            debug=True)
+            debug=False)
