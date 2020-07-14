@@ -84,13 +84,43 @@ The main feature I am showcasing in this website is the CRUD FUNCTIONALITY.  The
 * A method/list of preparation instructions
 * Any other attributes necessary (the number of attributes does not need to be complex, since * * creating a new form element is just about copying and pasting others I create).
 * List of recipes page **(‘Read’)*
-* This page that displays the recipes in the database. (suggest this be on home page*).
-* Edit a recipe page *(‘Update’)*
-* A page to edit an existing recipe. This looks exactly the same as the add recipe page, except   this time, the form is pre-  	   populated with values belonging to the recipe being edited.
+* This page that displays the recipes in the database. ( this being on home page*).
+* The *add_recipe* page which displays the form and the recipe form_request which links to the flask database and then inserts the recipe into the database via the website. 
+* The *edit_recipe* page *(‘Update’)*
+* A page to edit an existing recipe. This looks exactly the same as the *add recipe* page, except this time, the form is pre-populated with values belonging to the recipe being edited.
 
-Each recipe listed on the home page has an edit button that links to this page.
+Each recipe listed on the `home` page has an *edit button* that links to the `home` page.
 Delete link for each recipe *(‘Delete’)*
-Each recipe list (on the home page) has a delete button that links to the *delete view*.
+Each recipe list (on the home page) has a *delete_recipe* button that links to the `delete view`*.
+
+_*Please note :- In the *insert_recipe* function I have copied and modified the *insert_recipe* code in order to insert reicipes and add the ingredients and instructions text line by line to make it easy for the
+user to add their own and update recipes in a similar format.  This is so the user finds the format easy to use and not have to think about how it looks on the page.
+
+The *modified code* was copied from student repo "cook_book https://github.com/3PU/cook-book-milestone-project".
+        
+    @app.route("/insert_recipe", methods=["POST"])
+    def insert_recipe():
+        recipes = mongo.db.recipes
+        form_request = request.form.to_dict()
+
+        ingredients_list = form_request["ingredients"].split("\n")
+        instructions_list = form_request["instructions"].split("\n")
+
+        the_recipe = recipes.insert_one(
+            {
+            "category_name": form_request["category_name"],
+            "recipe_name": form_request["recipe_name"],
+            "image_link": form_request["image_link"],
+            "description": form_request["description"],
+            "recipe_ingredients": ingredients_list,
+            "recipe_instructions": instructions_list
+            }
+        )
+
+        return redirect(url_for("view_recipe",
+                                recipe_id=the_recipe.inserted_id))
+
+I have attributed this in the credits section below.*_
 
 ## Deployment
 
@@ -103,12 +133,19 @@ Each recipe list (on the home page) has a delete button that links to the *delet
 * More information found on Github:
   https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-    source-for-your-github-pages-site
 
-
 #### Cloning a repository to GitHub Desktop
 I clone one of my Flask mini projects to deploy locally on GitHub desktop. 
 On GitHub, I navigate to the main page of the repository.
 Under my repository name, I click to clone my repository in Desktop. I follow the prompts in GitHub Desktop to complete the clone.  
 
+###  Basic set up for my CookCorner project
+*(see *CRUD functionality notes further down page*)
+pip3 install flask
+pip3 install flask_pymongo
+pip3 install PyMongo
+pip3 install dnspython
+pip3 freeze > requirement.txt
+python3 app.py to run the server and test
 
 #### Deployment to Heroku
 Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previous commands.
@@ -197,8 +234,7 @@ DELETE	  Press the delete button to undo changes.
 			* Social media and blogs
 			* Chat page / Forum
 
-#### Technologies - a sample code to use in future:
-
+#### Technologies - a possible sample code to use in future:
 >  *login snippet* - copied from https://github.com/joanms/recipe->database/blob/master/app.py:
 >	if login_user:
             ### If the username is in the database, hash the password entered in the form and 								compare it with the hashed password in the database for that user
@@ -284,8 +320,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 Slack community - *various borrowed code snippets* See below credits. I often change them
                      when some of the code did not work for me.  However it did
-                     lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and 			     checking at the bottom of my jinga codes for the errors.
-                     This experience gave me more confidence to debug code.
+                     lead me on to thinking again about seeing a line of code highlighted in an error I had been seeing, and checking at the bottom of my jinga codes for these errors.
+                     This experience gives me more confidence to debug code.
 
 
 ## Credits
@@ -324,7 +360,34 @@ Deleting category
 https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
 
 #### Further Inspiration and ideas from following CI Student website:
-https://github.com/3PU/cook-book-milestone-project
+insert_recipe code copied and odified from this code below:-
+
+'''
+    @app.route("/insert_recipe", methods=["POST"])
+    def insert_recipe():
+    recipes = mongo.db.recipes
+
+    form_data = request.form.to_dict()
+
+    ingredients_list = form_data["ingredients"].split("\n")
+    instructions_list = form_data["instructions"].split("\n")
+
+    the_recipe = recipes.insert_one(
+        {
+         "category_name": form_data["category_name"],
+         "recipe_name": form_data["recipe_name"],
+         "image_link": form_data["image_link"],
+         "description": form_data["description"],
+         "ingredients": ingredients_list,
+         "instructions": instructions_list
+        }
+    )
+
+    return redirect(url_for("view_recipe",
+                            recipe_id=the_recipe.inserted_id))
+'''                            
+`https://github.com/3PU/cook-book-milestone-project`
+
 
 #### Family Hub - more ideas from this website created by Anna Greaves
 https://github.com/AJGreaves/familyhub/blob/master/config.py    
