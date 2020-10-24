@@ -27,18 +27,20 @@
                     <div class="carousel-caption">
                         <h1>View recipes here </h1>
                         <p class ="carousel-lead">View your favourite recipes.  We have added some popular ones to get you started!</p>
-                         <a href="{{ url_for('view_recipe_category', selected_category='Bake') }}" class="btn btn-success">View Recipes</a> 
+                         <a href="{{ url_for('recipes') }}" class="btn btn-success">View Recipes</a> 
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
             <img class="third-slide" src="static/img/heart_large.jpg" alt="Get Baking">
                 <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>Edit and update recipes here</h1>
-                        <p class ="carousel-lead">Once you have added your recipes you can edit, delete and update your recipes.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Edit and Update</a></p>
-                    </div>
+                   <div class="carousel-caption text-right">
+                        <h1>Edit and update recipes</h1>
+                        <p class ="carousel-lead" >Once you have added your recipes you can edit, delete and update your recipes.</p>
+                   </div>
+                   <div class="recipe-buttons">    
+                        <a href="{{url_for('edit_recipe', recipe_id='recipe._id')}}" class="btn btn-success">Edit Recipe</a>
+                   </div>
                 </div>
             </div>
         </div>
