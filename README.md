@@ -270,6 +270,7 @@ I tried using semi colons and commas to achieve the seemless new line effects in
 		*Flask==1.1.1
 		*Flask-PyMongo==2.3.0
 
+**pip freeze > requirements.txt**
 
 #### Links to libraries
 	
