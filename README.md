@@ -142,10 +142,10 @@ Under my repository name, I click to clone my repository in Desktop. I follow th
 *(see *CRUD functionality notes further down page*)
 pip3 install flask
 pip3 install flask_pymongo
-pip3 install PyMongo
+
 pip3 install dnspython
 pip3 freeze > requirement.txt
-python3 app.py to run the server and test
+"python3 app.py" -  to run the server and test
 
 #### Deployment to Heroku
 Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previous commands.
@@ -154,7 +154,7 @@ Kindly given to me via Anna Greaves(tutor)as I had trouble logging in with previ
  npm install -g heroku
 
 Then, to login, use the command:
-heroku login -i * 
+heroku login -i *
 
 #### Clone the repository
 Use Git to clone ms-cook-corner's source code to your local machine.
