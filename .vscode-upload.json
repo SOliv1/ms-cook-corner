@@ -10,9 +10,9 @@
     "private_key": "~/.ssh/id_rsa"
 },{
     "name":"",
-    "host": "",
+    "host": "8000",
     "port": 22,
-    "username": "",
+    "username": "SOliv1",
     "password": "",
     "remotePath": "",
     "localPath": "",

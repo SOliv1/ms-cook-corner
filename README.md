@@ -157,6 +157,7 @@ Then, to login, use the command:
 heroku login -i *
 
 #### Clone the repository
+
 Use Git to clone ms-cook-corner's source code to your local machine.
 (e.g. GitHub Pages or Heroku).
 When trying to deploy my project to Heroku I hit a bug *- AttributeError
@@ -172,6 +173,7 @@ Deploy changes
 Make some changes to the code you just cloned and deploy them to Heroku using Git.
 
 #### Deploy changes
+
 Make some changes to the code you just cloned and deploy them to Heroku using Git.
 
 $ git add .
@@ -386,17 +388,18 @@ insert_recipe code copied and modified from this code below:-
 
     return redirect(url_for("view_recipe",
                             recipe_id=the_recipe.inserted_id))
-'''                            
+'''
 `https://github.com/3PU/cook-book-milestone-project`
 
 
+#### The text for section "About" *history* was copied from the Wikipedia article https://en.
 
-
-#### The text for section "About" *history* was copied from the Wikipedia article https://en.wikipedia.org/wiki/Mason_Cash
+wikipedia.org/wiki/Mason_Cash
 
 #### Media
+
 The photos and credits obtained and used in this site were obtained from *Mason Cash ...*
-e.g. media - https://www.masoncash.co.uk/media/bannerslider/a/m/amazon-2.jpg
+e.g. media - <https://www.masoncash.co.uk/media/bannerslider/a/m/amazon-2.jpg>
 
 #### Acknowledgements
 I received inspiration for this project from:- 
@@ -417,6 +420,6 @@ Layout ideas / organisation for my website e.g. config.py, pages for my template
 ####README.md inspiration Anna Greaves - Family Portrait.
 ```
 
-		     
-## Conclusion	     
+   
+## Conclusion
 Overall I feel satisfied with my project and enjoyed creating it despite some issues along the way.  It was certainly challenging but I think the effort was worth it.

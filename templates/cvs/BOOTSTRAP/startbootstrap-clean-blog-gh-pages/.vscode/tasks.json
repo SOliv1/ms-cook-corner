@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "startbootstrap-clean-blog-gh-pages/",
+			"problemMatcher": [],
+			"label": "npm: install - startbootstrap-clean-blog-gh-pages",
+			"detail": "install dependencies from package"
+		}
+	]
+}
