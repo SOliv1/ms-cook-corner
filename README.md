@@ -1,3 +1,5 @@
+[![Jekyll site CI](https://github.com/SOliv1/ms-cook-corner/actions/workflows/jekyll.yml/badge.svg)](https://github.com/SOliv1/ms-cook-corner/actions/workflows/jekyll.yml)
+
 # Cook Corner
 
 #### Table Of Contents
