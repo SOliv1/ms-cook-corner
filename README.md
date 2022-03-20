@@ -1,5 +1,6 @@
 [![Jekyll site CI](https://github.com/SOliv1/ms-cook-corner/actions/workflows/jekyll.yml/badge.svg)](https://github.com/SOliv1/ms-cook-corner/actions/workflows/jekyll.yml)
 [![pages-build-deployment](https://github.com/SOliv1/ms-cook-corner/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/SOliv1/ms-cook-corner/actions/workflows/pages/pages-build-deployment)
+[![CodeQL](https://github.com/SOliv1/ms-cook-corner/actions/workflows/codeql.yml/badge.svg)](https://github.com/SOliv1/ms-cook-corner/actions/workflows/codeql.yml)
 
 # Cook Corner
 
