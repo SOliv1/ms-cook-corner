@@ -19,11 +19,11 @@
 * Credits
 * Conclusion
 
-### LIVE DEMO CAN BE FOUND AT HEROKU: <https://cook-corner-ms.herokuapp.com/>
+### LIVE WEB-SITE CAN BE FOUND ON HEROKU: [COOK CORNER](https://cook-corner-ms.herokuapp.com/)
 
-### README  Further information and alternative view via LINK HERE
+### README  Further information and alternative view via [LINK HERE](https://1drv.ms/w/s!AgMQTPoqZgRAjBzcw6gYVD7gImdt?e=5XbCvm)
 
-  README.md <https://1drv.ms/w/s!AgMQTPoqZgRAjBzcw6gYVD7gImdt?e=5XbCvm>
+  [README.md](https://1drv.ms/w/s!AgMQTPoqZgRAjBzcw6gYVD7gImdt?e=5XbCvm)
 
 ## UX Introduction
 
