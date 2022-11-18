@@ -4,8 +4,14 @@
     width: 100%;
 }
 
+#header.masthead {
+    background: url("../img/mason-cash.jpg");
+}
+
+
+
 #home-bottom-section {
-	background:url("../static/img/homepage-bottom-banner.jpg") no-repeat scroll 0 0 transparent;
+	background:url("../img/homepage-bottom-banner.jpg") no-repeat scroll 0 0 transparent;
 	background-size: cover;
 	padding: 50px;
 	text-align:center;
