@@ -177,6 +177,10 @@ header.masthead {
   background-size: cover;
 }
 
+header.masthead {
+    background: url(static/img/mason-cash.jpg);
+}
+
 header.masthead .overlay {
   position: absolute;
   top: 0;
