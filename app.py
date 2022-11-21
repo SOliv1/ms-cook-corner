@@ -102,7 +102,7 @@ def insert_recipe():
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
-    print(the_recipe)
+    #print(the_recipe)
     return render_template("edit_recipe.html",
                            recipe=the_recipe,
                            categories=all_categories,
